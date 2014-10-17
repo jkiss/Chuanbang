@@ -1,0 +1,2246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="en" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>穿帮-接口测试</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
+    <style type="text/css">
+    .bs-example {
+        position: relative;
+        padding: 45px 15px 15px;
+        margin: 0 -15px 15px;
+        background-color: #fafafa;
+        box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+        border-color: #e5e5e5 #eee #eee;
+        border-style: solid;
+        border-width: 1px 0;
+        margin-left: 0;
+        margin-right: 0;
+        background-color: #fff;
+        border-width: 1px;
+        border-color: #ddd;
+        border-radius: 4px 4px 0 0;
+        box-shadow: none;
+    }
+    #cb-spy-wrapper {
+        position:relative;
+    }
+    </style>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+</head>
+<body>
+<div class="container">
+    <header id="header" class="navbar" role="banner" style="position:fixed; width: 1140px;">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="#header"><h1>穿帮-接口测试</h1></a>
+            </div>
+        </div>
+    </header>
+    <div class="row">
+        <div class="col-md-3 hs-slide-lf">
+            <ul class="nav nav-pills nav-stacked" style="position:fixed; width: 200px; top: 100px;">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#celebrity">名人</a></li>
+                <li><a href="#brand">品牌</a></li>
+                <li><a href="#topic">话题</a></li>
+                <li><a href="#compare">对比</a></li>
+                <li><a href="#question">提问</a></li>
+                <li><a href="#answer">回答</a></li>
+                <li><a href="#search">搜索</a></li>
+                <li><a href="#user">用户</a></li>
+            </ul>
+        </div>
+        <div class="col-md-9" role="main">
+            <div id="cb-spy-wrapper" data-spy="scroll" data-target=".hs-slide-lf">
+                <div id="user">
+                    <h2>用户</h2>
+                    <div class="bs-example">
+                        <form id="user-register" class="form-horizontal" role="form" method="post" action="/user/register" target="_blank">
+                            <fieldset>
+                                <legend>注册</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">邮箱</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="email" placeholder="邮箱">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">密码</label>
+                                    <div class="col-sm-4">
+                                        <input type="password" class="form-control" name="password" placeholder="密码">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form id="user-login" class="form-horizontal" role="form" method="post" action="/user/login" target="_blank">
+                            <fieldset>
+                                <legend>登录</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">邮箱</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="email" placeholder="邮箱">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">密码</label>
+                                    <div class="col-sm-4">
+                                        <input type="password" class="form-control" name="password" placeholder="密码">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form id="user-avatar" class="form-horizontal" role="form" method="post" enctype="multipart/form-data" action="/user/avatar" target="_blank">
+                            <fieldset>
+                                <legend>修改头像</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">选择头像</label>
+                                    <div class="col-sm-4">
+                                        <input type="file" class="form-control" name="file">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form id="user-profile" class="form-horizontal" role="form" method="post" action="/user/profile" target="_blank">
+                            <fieldset>
+                                <legend>修改个人资料</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">昵称</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="User[nick]">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">性别</label>
+                                    <div class="col-sm-4">
+                                        <label class="radio-inline"><input type="radio" name="User[gender]" value="F" checked>女</label>
+                                        <label class="radio-inline"><input type="radio" name="User[gender]" value="M" checked>男</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">所在地</label>
+                                    <div class="col-sm-4">
+                                        <select class="form-control" id="region" name="User[region]">
+                                            <option value="不填写">不填写</option>
+                                            <option value="北京">北京</option>
+                                            <option value="上海">上海</option>
+                                            <option value="广东">广东</option>
+                                            <option value="安徽">安徽</option>
+                                            <option value="重庆">重庆</option>
+                                            <option value="福建">福建</option>
+                                            <option value="甘肃">甘肃</option>
+                                            <option value="广西">广西</option>
+                                            <option value="贵州">贵州</option>
+                                            <option value="海南">海南</option>
+                                            <option value="河南">河南</option>
+                                            <option value="河北">河北</option>
+                                            <option value="湖北">湖北</option>
+                                            <option value="湖南">湖南</option>
+                                            <option value="内蒙古">内蒙古</option>
+                                            <option value="江苏">江苏</option>
+                                            <option value="江西">江西</option>
+                                            <option value="吉林">吉林</option>
+                                            <option value="辽宁">辽宁</option>
+                                            <option value="宁夏">宁夏</option>
+                                            <option value="四川">四川</option>
+                                            <option value="黑龙江">黑龙江</option>
+                                            <option value="山东">山东</option>
+                                            <option value="山西">山西</option>
+                                            <option value="青海">青海</option>
+                                            <option value="西藏">西藏</option>
+                                            <option value="云南">云南</option>
+                                            <option value="天津">天津</option>
+                                            <option value="新疆">新疆</option>
+                                            <option value="浙江">浙江</option>
+                                            <option value="陕西">陕西</option>
+                                            <option value="台湾">台湾</option>
+                                            <option value="香港">香港</option>
+                                            <option value="澳门">澳门</option>
+                                            <option value="海外">海外</option>
+                                        </select>
+                                        <select class="form-control" id="city" name="User[city]" style="display: none;"></select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">公司</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="User[company]">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">职位</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="User[job]">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">签名</label>
+                                    <div class="col-sm-4">
+                                        <textarea name="User[signature]" rows="3" cols="50" style="width:530px;"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">个人说明</label>
+                                    <div class="col-sm-4">
+                                        <textarea name="User[description]" rows="3" cols="50" style="width:530px;"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form id="user-follow" class="form-horizontal" role="form" method="get" action="/user/follow" target="_blank">
+                            <fieldset>
+                                <legend>关注</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">用户id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form id="user-unfollow" class="form-horizontal" role="form" method="get" action="/user/unfollow" target="_blank">
+                            <fieldset>
+                                <legend>取消关注</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">用户id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form id="user-questions" class="form-horizontal" role="form" method="get" action="/user/questions" target="_blank">
+                            <fieldset>
+                                <legend>用户提问</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">用户id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="8">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form id="user-answers" class="form-horizontal" role="form" method="get" action="/user/answers" target="_blank">
+                            <fieldset>
+                                <legend>用户回答</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">用户id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="8">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form id="user-fans" class="form-horizontal" role="form" method="get" action="/user/fans" target="_blank">
+                            <fieldset>
+                                <legend>粉丝</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">用户id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="8">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" action="/follow/celebrities" method="get" target="_blank">
+                            <fieldset>
+                                <legend>关注的名人</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">用户id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="8">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" action="/follow/brands" method="get" target="_blank">
+                            <fieldset>
+                                <legend>关注的品牌</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">用户id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="8">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" action="/follow/users" method="get" target="_blank">
+                            <fieldset>
+                                <legend>关注的用户</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">用户id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="8">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" action="/fav/questions" method="get" target="_blank">
+                            <fieldset>
+                                <legend>收藏的提问</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">用户id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="8">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" action="/fav/answers" method="get" target="_blank">
+                            <fieldset>
+                                <legend>收藏的回答</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">用户id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="8">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" action="/fav/compares" method="get" target="_blank">
+                            <fieldset>
+                                <legend>收藏的对比</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">用户id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="8">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" action="/fav/topics" method="get" target="_blank">
+                            <fieldset>
+                                <legend>收藏的话题</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">用户id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="8">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" action="/support/questions" method="get" target="_blank">
+                            <fieldset>
+                                <legend>赞过的提问</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">用户id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="8">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" action="/support/answers" method="get" target="_blank">
+                            <fieldset>
+                                <legend>赞过的回答</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">用户id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="8">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" action="/support/compares" method="get" target="_blank">
+                            <fieldset>
+                                <legend>赞过的对比</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">用户id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="8">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" action="/support/topics" method="get" target="_blank">
+                            <fieldset>
+                                <legend>赞过的话题</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">用户id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="8">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" action="/support/pictures" method="get" target="_blank">
+                            <fieldset>
+                                <legend>赞过的图片</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">用户id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="8">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <div id="home">
+                    <h2>首页</h2>
+                    <div class="bs-example">
+                        <form class="form-horizontal" role="form" method="get" action="/site/pop" target="_blank">
+                            <fieldset>
+                                <legend>趋势</legend>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="get" action="/topic/hot" target="_blank">
+                            <fieldset>
+                                <legend>热门话题</legend>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="get" action="/answer/fresh" target="_blank">
+                            <fieldset>
+                                <legend>最新动态</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="20">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div><!--/question-fresh-->
+
+                <div id="celebrity">
+                    <h2>名人</h2>
+                    <div class="bs-example">
+                        <form class="form-horizontal" role="form" method="get" action="/celebrity/fresh" target="_blank">
+                            <legend>动态</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">名人id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="15">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">附加参数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="ajax" value="true">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="get" action="/celebrity/brands" target="_blank">
+                            <legend>相关品牌</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">名人id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="15">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">附加参数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="ajax" value="true">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="get" action="/celebrity/topics" target="_blank">
+                            <legend>相关话题</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">名人id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="15">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">附加参数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="ajax" value="true">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="get" action="/celebrity/fans" target="_blank">
+                            <legend>粉丝</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">名人id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="15">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">附加参数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="ajax" value="true">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/celebrity/follow" target="_blank">
+                            <legend>关注</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">名人id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/celebrity/unfollow" target="_blank">
+                            <legend>取消关注</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">名人id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div><!--/celebrity -->
+
+                <div id="brand">
+                    <h2>品牌</h2>
+                    <div class="bs-example">
+                        <form class="form-horizontal" role="form" method="get" action="/brand/product" target="_blank">
+                            <legend>相关产品</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">产品id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="get" action="/brand/fresh" target="_blank">
+                            <legend>动态</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">品牌id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="15">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">附加参数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="ajax" value="true">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="get" action="/brand/celebrity" target="_blank">
+                            <legend>相关名人</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">品牌id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="15">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">附加参数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="ajax" value="true">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="get" action="/brand/topic" target="_blank">
+                            <legend>相关话题</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">品牌id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="15">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">附加参数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="ajax" value="true">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="get" action="/brand/fan" target="_blank">
+                            <legend>粉丝</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">品牌id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="15">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">附加参数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="ajax" value="true">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/brand/follow" target="_blank">
+                            <legend>关注</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">品牌id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/brand/unfollow" target="_blank">
+                            <legend>取消关注</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">品牌id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div><!--/brand -->
+
+                <div id="topic">
+                    <h2>话题</h2>
+                    <div class="bs-example">
+                        <form class="form-horizontal" role="form" method="post" action="/topic/follow" target="_blank">
+                            <legend>关注</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">话题id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="get" action="/topic/answer" target="_blank">
+                            <legend>相关回答</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">话题id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="15">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">附加参数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="ajax" value="true">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/topic/unfollow" target="_blank">
+                            <legend>取消关注</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">话题id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/topic/support" target="_blank">
+                            <legend>赞</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">话题id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/topic/unsupport" target="_blank">
+                            <legend>取消赞</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">话题id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div><!--/topic -->
+
+                <div id="compare">
+                    <h2>对比</h2>
+                    <div class="bs-example">
+                        <form class="form-horizontal" role="form" method="get" action="/compare/list" target="_blank">
+                            <legend>对比分页</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="15">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/compare/draft" target="_blank">
+                            <legend>草稿</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/compare/addImg" target="_blank">
+                            <legend>添加图片</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">图片地址</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="url">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">回答id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="ans_id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/compare/delImg" target="_blank">
+                            <legend>删除图片</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">图片地址</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="url">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+
+                        <form class="form-horizontal" role="form" method="post" action="/compare/apply" target="_blank">
+                            <legend>提交</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">标题</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="title">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/compare/comment" target="_blank">
+                            <fieldset>
+                                <legend>添加评论</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">对比id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">评论内容</label>
+                                    <div class="col-sm-4">
+                                        <textarea name="content" rows="3" cols="50" style="width:530px;"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+
+                        <form class="form-horizontal" role="form" method="get" action="/compare/comments" target="_blank">
+                            <fieldset>
+                                <legend>评论列表</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">对比id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="20">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/compare/follow" target="_blank">
+                            <legend>关注</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">对比id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/compare/unfollow" target="_blank">
+                            <legend>取消关注</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">对比id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/compare/support" target="_blank">
+                            <legend>赞</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">对比id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/compare/unsupport" target="_blank">
+                            <legend>取消赞</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">对比id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div><!--/compare -->
+
+                <div id="question">
+                    <h2>提问</h2>
+                    <div class="bs-example">
+                    <form class="form-horizontal" role="form" method="get" action="/question/list" target="_blank">
+                        <legend>提问翻页</legend>
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">页码</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="page" value="1">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">每页条数</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="pageSize" value="15">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-2">
+                                    <button type="submit" class="btn btn-default">提交</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                        <form class="form-horizontal" role="form" method="get" action="/question/draft" target="_blank">
+                            <legend>草稿箱</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/question/delimg" target="_blank">
+                            <legend>删除草稿图片</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">图片</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="url">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/question/ask" target="_blank">
+                            <legend>提交草稿</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">说点儿什么</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="content">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/question/comment" target="_blank">
+                            <fieldset>
+                                <legend>添加评论</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">提问id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">评论内容</label>
+                                    <div class="col-sm-4">
+                                        <textarea name="content" rows="3" cols="50" style="width:530px;"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+
+                        <form class="form-horizontal" role="form" method="get" action="/question/comments" target="_blank">
+                            <fieldset>
+                                <legend>评论列表</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">提问id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="20">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/question/follow" target="_blank">
+                            <legend>收藏</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">问题id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/question/unfollow" target="_blank">
+                            <legend>取消收藏</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">问题id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/question/support" target="_blank">
+                            <legend>赞</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">问题id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/question/unsupport" target="_blank">
+                            <legend>取消赞</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">问题id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+
+                        <form class="form-horizontal" role="form" method="post" action="/question/supportImg" target="_blank">
+                            <legend>图片-赞</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">图片(问题)id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/question/unsupportImg" target="_blank">
+                            <legend>取消赞</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">图片(问题)id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div><!--/question-pending -->
+
+                <div id="answer">
+                    <h2>回答</h2>
+                    <div class="bs-example">
+                        <form class="form-horizontal" role="form" method="post" action="/answer/submit" enctype="multipart/form-data" target="_blank">
+                            <legend>提交</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">提问id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="AnswerForm[ques_id]">
+                                    </div>
+                                </div>
+                                <div class="well" num="0">
+
+                                    <button class="close">&times;</button>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">名人</label>
+                                        <div class="col-sm-4">
+                                            <input type="hidden" class="form-control" id="AnswerDetailForm_0_celebrity_more" name="AnswerDetailForm[0][celebrity_more]">
+                                            <input type="text" class="form-control celebrity" id="AnswerDetailForm_0_celebrity" name="AnswerDetailForm[0][celebrity]">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">品牌</label>
+                                        <div class="col-sm-4">
+                                            <input type="hidden" class="form-control" id="AnswerDetailForm_0_brand_more" name="AnswerDetailForm[0][brand_more]">
+                                            <input type="text" class="form-control brand" id="AnswerDetail_1_brand" name="AnswerDetailForm[0][brand]">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">分类</label>
+                                        <div class="col-sm-4">
+                                            <select id="AnswerDetailForm_0_clothes_type" name="AnswerDetailForm[0][clothes_type]" class="form-control"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">款式</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="AnswerDetailForm_0_style" class="form-control" name="AnswerDetailForm[0][style]">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label"></label>
+                                        <div class="col-sm-4">
+                                            <a href="javascript:;" class="btn btn-info btn-continue">继续添加</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">事件</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="AnswerForm_happens" name="AnswerForm[happens]">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">时间</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="AnswerForm_occurdate" name="AnswerForm[occurdate]">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">地点</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="AnswerForm_place" name="AnswerForm[place]">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">配图</label>
+                                    <div class="col-sm-4">
+                                        <input type="file" class="form-control" name="file[]" multiple>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">回答内容</label>
+                                    <div class="col-sm-4">
+                                        <textarea name="AnswerForm[content]" rows="6" cols="50" style="width:530px;"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="get" action="/answer/listClothesType" target="_blank">
+                            <legend>分类</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="get" action="/answer/suggestCelebrity" target="_blank">
+                            <legend>名人筛选</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">关键字</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="term">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="get" action="/answer/suggestBrand" target="_blank">
+                            <legend>品牌筛选</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">关键字</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="term">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="get" action="/answer/suggestHappens" target="_blank">
+                            <legend>事件筛选</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">关键字</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="term">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="get" action="/answer/suggestPlace" target="_blank">
+                            <legend>地点筛选</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">关键字</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="term">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/answer/comment" target="_blank">
+                            <fieldset>
+                                <legend>添加评论</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">回答id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">评论内容</label>
+                                    <div class="col-sm-4">
+                                        <textarea name="content" rows="3" cols="50" style="width:530px;"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+
+                        <form class="form-horizontal" role="form" method="get" action="/answer/comments" target="_blank">
+                            <fieldset>
+                                <legend>评论列表</legend>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">回答id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">页码</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="page" value="1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">每页条数</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="pageSize" value="20">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/answer/follow" target="_blank">
+                            <legend>收藏</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">回答id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/answer/unfollow" target="_blank">
+                            <legend>取消收藏</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">回答id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/answer/support" target="_blank">
+                            <legend>赞</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">回答id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form class="form-horizontal" role="form" method="post" action="/answer/unsupport" target="_blank">
+                            <legend>取消赞</legend>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">回答id</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-2">
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div><!--/answer-->
+
+                <div id="search">
+                    <h2>搜索</h2>
+                    <div class="bs-example">
+                        <form class="form-horizontal" role="form" method="post" action="/search/all" target="_blank">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">关键字</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="word" placeHolder="所有">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-2">
+                                    <button type="submit" class="btn btn-default">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                        <hr/>
+
+                        <form class="form-horizontal" role="form" method="get" action="/search/listStar" target="_blank">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">关键字</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="word" placeHolder="名人">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">页码</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="page" value="1">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-2">
+                                    <button type="submit" class="btn btn-default">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                        <hr/>
+
+                        <form class="form-horizontal" role="form" method="get" action="/search/listBrand" target="_blank">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">关键字</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="word" placeHolder="品牌">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">页码</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="page" value="1">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-2">
+                                    <button type="submit" class="btn btn-default">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                        <hr/>
+
+                        <form class="form-horizontal" role="form" method="get" action="/search/listTopic" target="_blank">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">关键字</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="word" placeHolder="话题">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">页码</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="page" value="1">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-2">
+                                    <button type="submit" class="btn btn-default">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                        <hr/>
+
+                        <form class="form-horizontal" role="form" method="get" action="/search/listCompare" target="_blank">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">关键字</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="word" placeHolder="对比">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">页码</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="page" value="1">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-2">
+                                    <button type="submit" class="btn btn-default">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                        <hr/>
+
+                        <form class="form-horizontal" role="form" method="get" action="/search/listUser" target="_blank">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">关键字</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="word" placeHolder="用户">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">页码</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="page" value="1">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-2">
+                                    <button type="submit" class="btn btn-default">提交</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div><!--/search -->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="pop-win" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Server Response</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+var context_path = "";
+var urls = {
+    list_clothes_type_url:context_path + '/answer/listClothesType',
+    celebrity_suggest_url:context_path + "/answer/suggestCelebrity",
+    brand_suggest_url:context_path + "/answer/suggestBrand",
+    happens_suggest_url:context_path + "/answer/suggestHappens",
+    place_suggest_url:context_path + "/answer/suggestPlace"
+};
+jQuery.fn.doOnce = function(func) {
+    this.length && func.apply(this);
+    return this;
+}
+var g = {
+    "北京": ["东城区", "西城区", "朝阳区", "丰台区", "石景山区", "海淀区", "门头沟区", "房山区", "通州区", "顺义区", "昌平区", "大兴区", "怀柔区", "平谷区", "密云县", "延庆县"],
+    "上海": ["黄浦区", "卢湾区", "徐汇区", "长宁区", "静安区", "普陀区", "闸北区", "虹口区", "杨浦区", "闵行区", "宝山区", "嘉定区", "浦东新区", "金山区", "松江区", "青浦区", "南汇区", "奉贤区", "崇明区"],
+    "广东": ["广州", "韶关", "深圳", "珠海", "汕头", "佛山", "江门", "湛江", "茂名", "肇庆", "惠州", "梅州", "汕尾", "河源", "阳江", "清远", "东莞", "中山", "潮州", "揭阳", "云浮"],
+    "安徽": ["合肥", "芜湖", "蚌埠", "淮南", "马鞍山", "淮北", "铜陵", "安庆", "黄山", "滁州", "阜阳", "宿州", "巢湖", "六安", "亳州", "池州", "宣城"],
+    "重庆": ["万州区", "涪陵区", "渝中区", "大渡口区", "江北区", "沙坪坝区", "九龙坡区", "南岸区", "北碚区", "万盛区", "双桥区", "渝北区", "巴南区", "黔江区", "长寿区", "綦江县", "潼南县", "铜梁县", "大足县", "荣昌县", "璧山县", "梁平县", "城口县", "丰都县", "垫江县", "武隆县", "忠县", "开县", "云阳县", "奉节县", "巫山县", "巫溪县", "石柱土家族自治县", "秀山土家族苗族自治县", "酉阳土家族苗族自治县", "彭水苗族土家族自治县", "江津市", "合川市", "永川区", "南川市"],
+    "福建": ["福州", "厦门", "莆田", "三明", "泉州", "漳州", "南平", "龙岩", "宁德"],
+    "甘肃": ["兰州", "嘉峪关", "金昌", "白银", "天水", "武威", "张掖", "平凉", "酒泉", "庆阳", "定西", "陇南", "临夏", "甘南"],
+    "广西": ["南宁", "柳州", "桂林", "梧州", "北海", "防城港", "钦州", "贵港", "玉林", "百色", "贺州", "河池"],
+    "贵州": ["贵阳", "六盘水", "遵义", "安顺", "铜仁", "黔西南", "毕节", "黔东南", "黔南"],
+    "海南": ["海口", "三亚", "其他"],
+    "河北": ["石家庄", "唐山", "秦皇岛", "邯郸", "邢台", "保定", "张家口", "承德", "沧州", "廊坊", "衡水"],
+    "黑龙江": ["哈尔滨", "齐齐哈尔", "鸡西", "鹤岗", "双鸭山", "大庆", "伊春", "佳木斯", "七台河", "牡丹江", "黑河", "绥化", "大兴安岭"],
+    "河南": ["郑州", "开封", "洛阳", "平顶山", "安阳", "鹤壁", "新乡", "焦作", "濮阳", "许昌", "漯河", "三门峡", "南阳", "商丘", "信阳", "周口", "驻马店"],
+    "湖北": ["武汉", "黄石", "十堰", "宜昌", "襄樊", "鄂州", "荆门", "孝感", "荆州", "黄冈", "咸宁", "随州", "恩施土家族苗族自治州"],
+    "湖南": ["长沙", "株洲", "湘潭", "衡阳", "邵阳", "岳阳", "常德", "张家界", "益阳", "郴州", "永州", "怀化", "娄底", "湘西土家族苗族自治州"],
+    "内蒙古": ["呼和浩特", "包头", "乌海", "赤峰", "通辽", "鄂尔多斯", "呼伦贝尔", "兴安盟", "锡林郭勒盟", "乌兰察布盟", "巴彦淖尔盟", "阿拉善盟"],
+    "江苏": ["南京", "无锡", "徐州", "常州", "苏州", "南通", "连云港", "淮安", "盐城", "扬州", "镇江", "泰州", "宿迁"],
+    "江西": ["南昌", "景德镇", "萍乡", "九江", "新余", "鹰潭", "赣州", "吉安", "宜春", "抚州", "上饶"],
+    "吉林": ["长春", "吉林", "四平", "辽源", "通化", "白山", "松原", "白城", "延边朝鲜族自治州"],
+    "辽宁": ["沈阳", "大连", "鞍山", "抚顺", "本溪", "丹东", "锦州", "营口", "阜新", "辽阳", "盘锦", "铁岭", "朝阳", "葫芦岛"],
+    "宁夏": ["银川", "石嘴山", "吴忠", "固原"],
+    "青海": ["西宁", "海东", "海北", "黄南", "海南", "果洛", "玉树", "海西"],
+    "山西": ["太原", "大同", "阳泉", "长治", "晋城", "朔州", "晋中", "运城", "忻州", "临汾", "吕梁"],
+    "山东": ["济南", "青岛", "淄博", "枣庄", "东营", "烟台", "潍坊", "济宁", "泰安", "威海", "日照", "莱芜", "临沂", "德州", "聊城", "滨州", "菏泽"],
+    "四川": ["成都", "自贡", "攀枝花", "泸州", "德阳", "绵阳", "广元", "遂宁", "内江", "乐山", "南充", "眉山", "宜宾", "广安", "达州", "雅安", "巴中", "资阳", "阿坝", "甘孜", "凉山"],
+    "天津": ["和平区", "河东区", "河西区", "南开区", "河北区", "红桥区", "塘沽区", "汉沽区", "大港区", "东丽区", "西青区", "津南区", "北辰区", "武清区", "宝坻区", "宁河县", "静海县", "蓟县", "滨海新区", "保税区"],
+    "西藏": ["拉萨", "昌都", "山南", "日喀则", "那曲", "阿里", "林芝"],
+    "新疆": ["乌鲁木齐", "克拉玛依", "吐鲁番", "哈密", "昌吉", "博尔塔拉", "巴音郭楞", "阿克苏", "克孜勒苏", "喀什", "和田", "伊犁", "塔城", "阿勒泰", "石河子"],
+    "云南": ["昆明", "曲靖", "玉溪", "保山", "昭通", "楚雄", "红河", "文山", "思茅", "西双版纳", "大理", "德宏", "丽江", "怒江", "迪庆", "临沧"],
+    "浙江": ["杭州", "宁波", "温州", "嘉兴", "湖州", "绍兴", "金华", "衢州", "舟山", "台州", "丽水"],
+    "陕西": ["西安", "铜川", "宝鸡", "咸阳", "渭南", "延安", "汉中", "榆林", "安康", "商洛"],
+    "台湾": ["台北", "高雄", "其他"],
+    "香港": ["香港"],
+    "澳门": ["澳门"],
+    "海外": ["美国", "英国", "法国", "俄罗斯", "加拿大", "巴西", "澳大利亚", "印尼", "泰国", "马来西亚", "新加坡", "菲律宾", "越南", "印度", "日本", "新西兰", "韩国", "瑞典", "其他"]
+};
+$(function() {
+    $("form").each(function() {
+        var form_ = $(this),
+            action = form_.attr("action"),
+            method = form_.attr('method').toLowerCase();
+        if(action.indexOf("/") == 0) form_.attr("action", context_path + action);
+        if(form_.hasClass("ajax")) {
+            form_.find("button[type='submit']").click(function() {
+                var data = form_.serialize();
+                $.ajax({
+                    url:action,
+                    method:method,
+                    data:data,
+                    success:function(rs, status, req) {
+                        $("#pop-win .modal-body").html('<pre>' + rs + '</pre>');
+                        $("#pop-win").modal('show');
+                    },
+                    error:function(req, status, e) {
+                        $("#pop-win .modal-body").html('<pre>' + e + '</pre>');
+                        $("#pop-win").modal('show');
+                    }
+                });
+                return false;
+            });
+        }
+    });
+
+    ////////////////////////// 提问-回答  /////////////////////////////////////////////////////////////////////////////
+    if($("#answer").length > 0) {
+        var $ctx = $("#answer"), minLength = 1, well_seq = $(".well", $ctx).length - 1;
+        $.getJSON(urls.list_clothes_type_url, function(data) {
+            var html = '';
+            $.each(data, function(i,v) {
+                html += '<option value="' + v.value + '">' + v.value + '</option>';
+            });
+            $("#AnswerDetailForm_0_clothes_type").empty().html(html);
+        });
+
+        var bindAutoComplete = function() {
+            // 名人
+            $(".well .celebrity").autocomplete({
+                'source':urls.celebrity_suggest_url,
+                minLength: minLength,
+                response:function( event, ui ) {
+                    $.each(ui.content, function(i, v) {
+                        v.label = v.name_cn + ' ' + v.name_en;
+                        v.value = v.name;
+                    });
+                },
+                select: function( event, ui ) {
+                    var nodes = $(this).parentsUntil(".well");
+                    var num = $(nodes[nodes.length - 1]).parent(".well").attr("num");
+                    $("#AnswerDetailForm_" + num + "_celebrity_more").val(ui.item.id + ',' + ui.item.value);
+                }
+            });
+
+            // 品牌
+            $(".well .brand").autocomplete({
+                'source':urls.brand_suggest_url,
+                minLength: minLength,
+                response:function( event, ui ) {
+                    $.each(ui.content, function(i, v) {
+                        v.label = v.name_cn + ' ' + v.name_en;
+                        v.value = v.name;
+                    });
+                },
+                select: function( event, ui ) {
+                    var nodes = $(this).parentsUntil(".well");
+                    var num = $(nodes[nodes.length - 1]).parent(".well").attr("num");
+                    $("#AnswerDetailForm_" + num + "_brand_more").val(ui.item.id + ',' + ui.item.value);
+                }
+            });
+        }
+        bindAutoComplete();
+        // 关闭
+        $ctx.delegate(".well .close", 'click', function() {
+            var _this = $(this),
+                    _well = _this.parent(".well");
+            var total = $(" .well", $ctx).length;
+            if(total <= 1) {
+                tip("至少保留一个");
+                return false;
+            }
+
+            if(!confirm('确定要删除这条数据吗?')) return false;
+
+            _well.remove();
+            return false;
+        });
+        // 继续添加
+        $ctx.delegate(".well .btn-continue", 'click', function() {
+            var nodes = $(this).parentsUntil(".well");
+            var $well = $(nodes[nodes.length - 1]).parent(".well");
+            var num = $well.attr("num");
+            $well.after($well.clone());
+
+            // 更新计数
+            well_seq++;
+            var $well_next = $well.next(".well");
+            $well_next.attr("num", well_seq);
+            $(":input", $well_next).each(function() {
+                if($(this).attr("id") != undefined) {
+                    $(this).attr("id", $(this).attr("id").replace(/AnswerDetailForm_\d+_/g, "AnswerDetailForm_" + well_seq + "_"));
+                }
+                if($(this).attr("name") != undefined) {
+                    $(this).attr("name", $(this).attr("name").replace(/AnswerDetailForm\[\d+\]/g, "AnswerDetailForm[" + well_seq + "]"));
+                }
+            });
+            $("#AnswerDetailForm_" + well_seq + "_id").val('');
+
+            bindAutoComplete();
+        });
+        // 话题日期
+        $("#AnswerForm_occurdate").datepicker({
+            'lang':'zh_cn',
+            'showAnim':'fold',
+            'dateFormat':'yy-mm-dd'
+        });
+    }
+    ////////////////////////// 提问-回答  /////////////////////////////////////////////////////////////////////////////
+    $("#region").doOnce(function() {
+        var a = this,b = $("#city");
+        a.change(function() {
+            var c = a.find("option:selected").val(),
+                    d = g[c];
+            b.empty().show(), c in g ? $.each(d, function(c, d) {
+                var e = $("<option/>").text(d).attr("value", d),
+                        f = a.data("city");
+                d === f && e.attr("selected", "selected"), e.appendTo(b)
+            }) : b.html('<option value="保密">保密</option>').hide()
+        }), a.keyup(function(b) {
+            (b.keyCode === 38 || b.keyCode === 40) && a.trigger("change")
+        }), a.trigger("change")
+    })
+});
+
+function tip(msg) {
+    var tm = new Date().getTime();
+    var style = 'position:fixed;width:150px;height:50px;top:50%;left:50%;margin-top:-25px;margin-left:-75px;text-align:center;';
+    var html = '<div id="' + tm + '" class="alert alert-danger" style="' + style + '">' + msg + '</div>';
+    $('body').append(html);
+    var $tip = $("#" + tm);
+    $tip.stop().fadeIn('fast',function() {
+        $tip.delay(3000).fadeOut(2000,function() {
+            $tip.remove();
+        });
+    });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+        <meta name="keywords" content="穿帮，明星">
+        <meta naem="description" content="发现时尚与潮流，揭穿明星的秘密！">
+        <title>穿帮v0.1 - Search Result</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+        <link rel="stylesheet" href="styles/noookey.css">
+        <link rel="stylesheet" href="styles/cb.css">
+        <link rel="stylesheet" href="styles/index.css">
+    </head>
+    <body>
+        <!-- The main nav -->
+        <nav class="main-nav">
+            <ul>
+                <li class="active">
+                    <a href="#">首页</a>
+                    <a href="#" class="icon-home"></a>
+                </li>
+                <li>
+                    <a href="star_page/star.html">名人</a>
+                    <a href="star_page/star.html" class="nav-icon2"></a>
+                </li>
+                <li>
+                    <a href="brand_page/brand.html">品牌</a>
+                    <a href="brand_page/brand.html" class="nav-icon3"></a>
+                </li>
+                <li>
+                    <a href="topic_page/topic.html">话题</a>
+                    <a href="topic_page/topic.html" class="nav-icon4"></a>
+                </li>
+                <li>
+                    <a href="compare_page/compare.html">对比</a>
+                    <a href="compare_page/compare.html" class="nav-icon5"></a>
+                </li>
+                <li>
+                    <a href="wait_page/wait.html">待答</a>
+                    <a href="wait_page/wait.html" class="nav-icon6"></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="login-no">用户</a>
+                    <a href="javascript:void(0);" class="nav-icon7 login-no"></a>
+                </li>
+            </ul>
+        </nav>
+        <!-- The top bar -->
+        <header class="header">
+            <div class="logo"></div>
+            <form action="#" method="post" id="search_box">
+                <input type="text" id="keywords" name="keywords" autocomplete="off" placeholder="搜索&nbsp;品牌/明星/话题..." required>
+                <div class="search-result">
+                    <div class="title star">
+                        <span>名人（共20个结果）</span>
+                        <i></i>
+                    </div>
+                    <ul class="star">
+                        <li>奥黛丽·赫本(Audrey Hepburn)</li>
+                        <li>奥黛丽·赫本(Audrey Hepburn)</li>
+                        <li>奥黛丽·赫本(Audrey Hepburn)</li>
+                    </ul>
+                    <div class="title brand">
+                        <span>品牌（共20个结果）</span>
+                        <i></i>
+                    </div>
+                    <ul class="brand">
+                        <li>A&F(Abercrombie&Fitch)</li>
+                        <li>A&F(Abercrombie&Fitch)</li>
+                        <li>A&F(Abercrombie&Fitch)</li>
+                    </ul>
+                    <div class="title user">
+                        <span>用户（共0个结果）</span>
+                        <i></i>
+                    </div>
+                    <ul>
+                    </ul>
+                </div>
+            </form>
+            <!-- 未登录 -->
+            <a href="javascript:void(0);" class="add-star-outfit login-no">
+                <i></i>
+                添加明星穿搭
+            </a>
+            <!-- 已登录 -->
+            <!-- <a href="javascript:void(0);" class="add-celebrity-outfit">
+                <i></i>
+                添加明星穿搭
+            </a> -->
+        </header>
+        <!-- The search content -->
+        <section id="search">
+            <ul class="s-header">
+                <li class="active">
+                    <a href="#">全部</a>
+                </li>
+                <li>
+                    <a href="#">名人</a>
+                </li>
+                <li>
+                    <a href="#">品牌</a>
+                </li>
+                <li>
+                    <a href="#">话题</a>
+                </li>
+                <li>
+                    <a href="#">对比</a>
+                </li>
+                <li>
+                    <a href="#">用户</a>
+                </li>
+            </ul>
+            <!-- 相关名人 -->
+            <div class="module s-star">
+                <div class="top">
+                    <i class="icon-black-star"></i>
+                    <h3>相关名人</h3>
+                    <span class="count">（共8人）</span>
+                    <a href="#" class="more">更多名人&bullet;&bullet;&bullet;</a>
+                </div>
+                <div class="grid seven sep clearfix">
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/news1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">刘雯</p>
+                            <p class="fans text-overflow">粉丝数111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/news1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">刘雯</p>
+                            <p class="fans text-overflow">粉丝数111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/news1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">刘雯</p>
+                            <p class="fans text-overflow">粉丝数111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/news1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">刘雯</p>
+                            <p class="fans text-overflow">粉丝数111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/news1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">刘雯</p>
+                            <p class="fans text-overflow">粉丝数111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/news1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">刘雯</p>
+                            <p class="fans text-overflow">粉丝数111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/news1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">刘雯</p>
+                            <p class="fans text-overflow">粉丝数111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/news1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">刘雯</p>
+                            <p class="fans text-overflow">粉丝数111个</p>
+                        </div>
+                    </a>
+                </div><hr>
+            </div>
+            <!-- 相关答案 -->
+            <!-- <div class="module s-choice">
+                <div class="top">
+                    <i class="icon-black-celebrity"></i>
+                    <h3>相关精选</h3>
+                    <span class="count">（共3人）</span>
+                    <a href="#" class="more">更多精选&bullet;&bullet;&bullet;</a>
+                </div>
+                <div class="grid six sep clearfix">
+                    <a href="#" class="column float">
+                        <div class="image cho-scale">
+                            <img src="images/search/choice1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">秦岚穿Chloe(fdsfsfsfsfs)</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image cho-scale">
+                            <img src="images/search/choice1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">秦岚穿Chloe(fdsfsfsfsfs)</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image cho-scale">
+                            <img src="images/search/choice1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">秦岚穿Chloe(fdsfsfsfsfs)</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image cho-scale">
+                            <img src="images/search/choice1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">秦岚穿Chloe(fdsfsfsfsfs)</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image cho-scale">
+                            <img src="images/search/choice1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">秦岚穿Chloe(fdsfsfsfsfs)</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image cho-scale">
+                            <img src="images/search/choice1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">秦岚穿Chloe(fdsfsfsfsfs)</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image cho-scale">
+                            <img src="images/search/choice1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">秦岚穿Chloe(fdsfsfsfsfs)</p>
+                        </div>
+                    </a>
+                </div><hr>
+            </div> -->
+            <!-- 相关品牌 -->
+            <div class="module s-brand">
+                <div class="top">
+                    <i class="icon-black-star"></i>
+                    <h3>相关品牌</h3>
+                    <span class="count">（共8人）</span>
+                    <a href="#" class="more">更多品牌&bullet;&bullet;&bullet;</a>
+                </div>
+                <div class="grid seven sep clearfix">
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/news1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">唐可娜儿</p>
+                            <p class="name_en text-overflow">DKNY</p>
+                            <p class="fans text-overflow">粉丝111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/news1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">唐可娜儿</p>
+                            <p class="name_en text-overflow">DKNY</p>
+                            <p class="fans text-overflow">粉丝111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/news1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">唐可娜儿</p>
+                            <p class="name_en text-overflow">DKNY</p>
+                            <p class="fans text-overflow">粉丝111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/news1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">唐可娜儿</p>
+                            <p class="name_en text-overflow">DKNY</p>
+                            <p class="fans text-overflow">粉丝111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/news1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">唐可娜儿</p>
+                            <p class="name_en text-overflow">DKNY</p>
+                            <p class="fans text-overflow">粉丝111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/news1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">唐可娜儿</p>
+                            <p class="name_en text-overflow">DKNY</p>
+                            <p class="fans text-overflow">粉丝111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/news1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">唐可娜儿</p>
+                            <p class="name_en text-overflow">DKNY</p>
+                            <p class="fans text-overflow">粉丝111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/news1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">唐可娜儿</p>
+                            <p class="name_en text-overflow">DKNY</p>
+                            <p class="fans text-overflow">粉丝111个</p>
+                        </div>
+                    </a>
+                </div><hr>
+            </div>
+            <!-- 相关话题 -->
+            <div class="module s-topic">
+                <div class="top">
+                    <i class="icon-black-star"></i>
+                    <h3>相关话题</h3>
+                    <span class="count">（共3个）</span>
+                    <a href="#" class="more">更多话题&bullet;&bullet;&bullet;</a>
+                </div>
+                <div class="grid four sep clearfix">
+                    <a href="#" class="column float">
+                        <div class="image top-scale">
+                            <img src="images/search/topic1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">2015米兰国际时装周秋冬高级定制</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image top-scale">
+                            <img src="images/search/topic1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">2015米兰国际时装周秋冬高级定制</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image top-scale">
+                            <img src="images/search/topic1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">2015米兰国际时装周秋冬高级定制</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image top-scale">
+                            <img src="images/search/topic1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">2015米兰国际时装周秋冬高级定制</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image top-scale">
+                            <img src="images/search/topic1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">2015米兰国际时装周秋冬高级定制</p>
+                        </div>
+                    </a>
+                </div><hr>
+            </div>
+            <!-- 相关对比 -->
+            <div class="module s-compare">
+                <div class="top">
+                    <i class="icon-black-star"></i>
+                    <h3>相关对比</h3>
+                    <span class="count">（共3个）</span>
+                    <a href="#" class="more">更多对比&bullet;&bullet;&bullet;</a>
+                </div>
+                <div class="grid four sep clearfix">
+                    <a href="#" class="column float">
+                        <div class="image com-scale">
+                            <div class="slide-wrap">
+                                <img class="img1" src="images/compare/compare2.jpg" alt="compare" data-src="">
+                                <img class="img2" src="images/compare/compare3.jpg" alt="compare" data-src="">
+                                <img class="img3" src="images/compare/compare4.jpg" alt="compare" data-src="">
+                                <img class="img4" src="images/compare/compare5.jpg" alt="compare" data-src="">
+                            </div>
+                            <span class="vs">VS</span>
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">2015米兰国际时装周秋冬高级定制</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image com-scale">
+                            <div class="slide-wrap">
+                                <img class="img1" src="images/compare/compare2.jpg" alt="compare" data-src="">
+                                <img class="img2" src="images/compare/compare3.jpg" alt="compare" data-src="">
+                                <img class="img3" src="images/compare/compare4.jpg" alt="compare" data-src="">
+                                <img class="img4" src="images/compare/compare5.jpg" alt="compare" data-src="">
+                            </div>
+                            <span class="vs">VS</span>
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">2015米兰国际时装周秋冬高级定制</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image com-scale">
+                            <div class="slide-wrap">
+                                <img class="img1" src="images/compare/compare2.jpg" alt="compare" data-src="">
+                                <img class="img2" src="images/compare/compare3.jpg" alt="compare" data-src="">
+                                <img class="img3" src="images/compare/compare4.jpg" alt="compare" data-src="">
+                                <img class="img4" src="images/compare/compare5.jpg" alt="compare" data-src="">
+                            </div>
+                            <span class="vs">VS</span>
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">2015米兰国际时装周秋冬高级定制</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image com-scale">
+                            <div class="slide-wrap">
+                                <img class="img1" src="images/compare/compare2.jpg" alt="compare" data-src="">
+                                <img class="img2" src="images/compare/compare3.jpg" alt="compare" data-src="">
+                                <img class="img3" src="images/compare/compare4.jpg" alt="compare" data-src="">
+                                <img class="img4" src="images/compare/compare5.jpg" alt="compare" data-src="">
+                            </div>
+                            <span class="vs">VS</span>
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">2015米兰国际时装周秋冬高级定制</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image com-scale">
+                            <div class="slide-wrap">
+                                <img class="img1" src="images/compare/compare2.jpg" alt="compare" data-src="">
+                                <img class="img2" src="images/compare/compare3.jpg" alt="compare" data-src="">
+                                <img class="img3" src="images/compare/compare4.jpg" alt="compare" data-src="">
+                                <img class="img4" src="images/compare/compare5.jpg" alt="compare" data-src="">
+                            </div>
+                            <span class="vs">VS</span>
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">2015米兰国际时装周秋冬高级定制</p>
+                        </div>
+                    </a>
+                </div><hr>
+            </div>
+            <!-- 相关名人 -->
+            <div class="module s-user">
+                <div class="top">
+                    <i class="icon-black-star"></i>
+                    <h3>相关用户</h3>
+                    <span class="count">（共8人）</span>
+                    <a href="#" class="more">更多用户&bullet;&bullet;&bullet;</a>
+                </div>
+                <div class="grid twelve sep clearfix">
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/search/user1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">Peter</p>
+                            <p class="fans text-overflow">粉丝数111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/search/user1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">Peter</p>
+                            <p class="fans text-overflow">粉丝数111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/search/user1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">Peter</p>
+                            <p class="fans text-overflow">粉丝数111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/search/user1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">Peter</p>
+                            <p class="fans text-overflow">粉丝数111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/search/user1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">Peter</p>
+                            <p class="fans text-overflow">粉丝数111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/search/user1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">Peter</p>
+                            <p class="fans text-overflow">粉丝数111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/search/user1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">Peter</p>
+                            <p class="fans text-overflow">粉丝数111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/search/user1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">Peter</p>
+                            <p class="fans text-overflow">粉丝数111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/search/user1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">Peter</p>
+                            <p class="fans text-overflow">粉丝数111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/search/user1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">Peter</p>
+                            <p class="fans text-overflow">粉丝数111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/search/user1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">Peter</p>
+                            <p class="fans text-overflow">粉丝数111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/search/user1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">Peter</p>
+                            <p class="fans text-overflow">粉丝数111个</p>
+                        </div>
+                    </a>
+                    <a href="#" class="column float">
+                        <div class="image s-scale">
+                            <img src="images/search/user1.jpg" alt="#">
+                        </div>
+                        <div class="caption">
+                            <p class="name text-overflow">Peter</p>
+                            <p class="fans text-overflow">粉丝数111个</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <script src="scripts/jquery.js"></script>
+        <script src="scripts/cb.js"></script>
+        <script>
+            $('.grid').find('a').hover(function() {
+                var _me = $(this);
+                _me.css('background-color', '#333');
+                _me.find('.name').css('color', '#ddd');
+                _me.find('.fans').css('color', '#ddd');
+            }, function() {
+                var _me = $(this);
+                _me.css('background-color', '#fff');
+                _me.find('.name').css('color', '#4a4f55');
+                _me.find('.fans').css('color', '#a0a0a0');
+            });
+
+            // 调整对比图片宽度
+            $(function(){
+                $('.s-compare').find('img').each(function(index, el) {
+                    var init_w = $('.s-compare').find('.image').width() / 2;
+                    $(this).css('width', init_w + 'px');
+                });
+            });
+            $(window).resize(function(event) {
+                $('.s-compare').find('img').each(function(index, el) {
+                    var init_w = $('.s-compare').find('.image').width() / 2;
+                    $(this).css('width', init_w + 'px');
+                });
+            });
+
+            // 对比图片随鼠标滑动
+            $('.s-compare').find('.grid').on('mousemove', '.image', function(event) {
+                this.img_num = $(this).find('img').length;
+                this.moving = false;
+                this.zone_num = 0;
+                var _this = $(this);
+                    mouse_offsetX = event.pageX - $(this).offset().left,
+                    img_width = $(this).find('img').width(),
+                    $slide_wrap = $(this).find('.slide-wrap');
+                    wrap_width = $(this).width();
+                    monitor_zones = [],
+                    zone_width = Math.floor(wrap_width / (this.img_num - 1));
+
+                // Init
+                for (var i = 1; i < this.img_num; i++) {
+                    monitor_zones.push({
+                        offsetX: zone_width * (i - 1),
+                        offsetY: zone_width * i,
+                        left_dis: img_width * (i - 1),
+                        num: i
+                    });                    
+                };
+                monitor_zones.contain = function(number){
+                    return number >= this.offsetX && number <= this.offsetY;
+                }
+
+                // Decting mouse_pos & do something
+                for (var i = 0; i < monitor_zones.length; i++) {
+                    if(monitor_zones.contain.call(monitor_zones[i], mouse_offsetX) && monitor_zones[i].num !== this.zone_num){
+                        $slide_wrap.stop();
+                        $slide_wrap.animate({'left': -monitor_zones[i].left_dis + 'px'}, 100, 'linear');
+                        this.zone_num = monitor_zones[i].num;
+                    }
+                };
+
+                // 调试信息
+                console.log(this.img_num);
+                console.log('event.offsetX:' + event.offsetX); // 火狐不支持offset
+                console.log(event.pageX - $(this).offset().left);
+            });
+        </script>
+    </body>
+</html>

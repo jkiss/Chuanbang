@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+        <meta name="keywords" content="穿帮，明星">
+        <meta naem="description" content="发现时尚与潮流，揭穿明星的秘密！">
+        <title>穿帮v0.1 - Home</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+        <link rel="stylesheet" href="styles/noookey.css">
+        <link rel="stylesheet" href="styles/cb.css">
+        <link rel="stylesheet" href="styles/index.css">
+    </head>
+    <body>
+        <!-- The main nav -->
+        <nav class="main-nav">
+            <ul>
+                <li class="active">
+                    <a href="#">首页</a>
+                    <a href="#" class="nav-icon1"></a>
+                </li>
+                <li>
+                    <a href="#">名人</a>
+                    <a href="#" class="nav-icon2"></a>
+                </li>
+                <li>
+                    <a href="#">品牌</a>
+                    <a href="#" class="nav-icon3"></a>
+                </li>
+                <li>
+                    <a href="#">话题</a>
+                    <a href="#" class="nav-icon4"></a>
+                </li>
+                <li>
+                    <a href="#">对比</a>
+                    <a href="#" class="nav-icon5"></a>
+                </li>
+                <li>
+                    <a href="#">待答</a>
+                    <a href="#" class="nav-icon6"></a>
+                </li>
+                <li>
+                    <a href="#">用户</a>
+                    <a href="#" class="nav-icon7"></a>
+                </li>
+            </ul>
+        </nav>
+        <!-- The top bar -->
+        <header class="header">
+            <div class="logo"></div>
+            <form action="#" method="post" id="search_box">
+                <input type="text" id="keywords" name="keywords" autocomplete="off" placeholder="搜索&nbsp;品牌/明星/话题..." required>
+                <div class="search-result">
+                    <div class="title star">
+                        <span>名人（共20个结果）</span>
+                        <i></i>
+                    </div>
+                    <ul class="star">
+                        <li>奥黛丽·赫本(Audrey Hepburn)</li>
+                        <li>奥黛丽·赫本(Audrey Hepburn)</li>
+                        <li>奥黛丽·赫本(Audrey Hepburn)</li>
+                    </ul>
+                    <div class="title brand">
+                        <span>品牌（共20个结果）</span>
+                        <i></i>
+                    </div>
+                    <ul class="brand">
+                        <li>A&F(Abercrombie&Fitch)</li>
+                        <li>A&F(Abercrombie&Fitch)</li>
+                        <li>A&F(Abercrombie&Fitch)</li>
+                    </ul>
+                    <div class="title user">
+                        <span>用户（共0个结果）</span>
+                        <i></i>
+                    </div>
+                    <ul>
+                    </ul>
+                </div>
+            </form>
+            <a href="#" class="add-star-outfit">
+                <i></i>
+                添加明星穿搭
+            </a>
+        </header>
+        <!-- The index content -->
+        <section id="add_suit" class="content no-select">
+            <div class="u-p-wrap">
+                <div class="upload-panel abs-center">
+                    <p class="title">把照片或文件拖放到这里或</p>
+                    <div class="upload-btn" id="file_uploader">
+                        <input type="file" id="upload_imgs" name="files[]" multiple="multiple" data-url="/nokey_cn/upload.php" accept="image/*">
+                        选择照片文件
+                    </div>
+                    <p class="limit-text">*一次上传最多8张照片</p>
+                </div>
+            </div>
+
+            <div class="upload-preview">
+                <ul class="box grid five sep clearfix">
+                    <!-- 待添加图片 -->
+                    <!-- <li class="column float">
+                        <div class="img-wrap" id="sd">
+                            <i class="cancel-btn"></i>
+                            <img src="images/add_suit1.jpg" alt="#">
+                            <div class="progress-wrap">
+                                <i class="p-bar"></i>
+                            </div>
+                        </div>
+                        <p class="img-title text-overflow">
+                            1234567.jpg
+                        </p>
+                    </li> -->
+                    <li class="column float">
+                        <div class="img-wrap" id="sd">
+                            <i class="cancel-btn"></i>
+                            <img src="images/add_suit1.jpg" alt="#">
+                            <div class="progress-wrap">
+                                <i class="p-bar"></i>
+                            </div>
+                        </div>
+                        <p class="img-title text-overflow">
+                            1234567.jpg
+                        </p>
+                    </li>
+
+                    <li class="column float plus-btn">
+                        <div class="add-btn">
+                            <i class="icon-plus"></i>
+                        </div>
+                        <input type="file" class="continue-add" name="files" multiple="multiple" data-url="/nokey_cn/upload.php" accept="image/*">
+                    </li>
+                </ul>
+                <div class="sure-or-not">
+                    <a href="wait_page/wait_detail.html" class="sure">确认</a>
+                    <i class="not">取消</i>
+                </div>
+            </div>
+        </section>
+
+        <script src="scripts/jquery.js"></script>
+        <script src="scripts/cb.js"></script>
+        <script>
+            // Upload Img
+            (function($){
+                var
+                    drop_zones = [],             // 拖拽区域元素数组
+                    inputs = [],                 // 文本域输入数组
+                    preview_zone,                // 图片预览区域
+                    preview_wrap_HTML,           // 预览图片外围HTML
+                    img_files = [],              // 图片文件数组
+                    max_img_num = 8,             // 允许选择的最大图片数量
+                    url = 'upload.php',
+                    method = 'post',
+                    data_type = 'json',
+                    upload_btn,
+                    uploading = false,
+                    queuePos = -1,
+                    unique_id = 0;
+
+                // 初始化各变量
+                drop_zones.push($('.upload-panel')[0]);
+                inputs.push($('.continue-add')[0]);
+                preview_zone = $('.upload-preview').find('.box');
+                preview_wrap_HTML = '<li class="column float"><div class="img-wrap"><i class="cancel-btn"></i><img src="'+ 'img_url' + '" alt="#"><div class="progress-wrap"><i class="p-bar"></i></div></div><p class="img-title text-overflow">' + 'this.img_name' + '</p></li>';
+
+                upload_btn = $('.sure');
+                // console.log(drop_zones[0]);
+                function Init(){
+                    // 拖拽事件
+                    $(drop_zones).each(function(index, el) {
+                        $(this).on('drop', function(event) {
+                            event.preventDefault();
+                            var files = event.originalEvent.dataTransfer.files;
+                            // console.log(files);
+                            imgQueue(files);
+
+                            $('.u-p-wrap').css('display', 'none');
+                            $('.upload-preview').css('display', 'block');
+                            $('.footer').removeClass('hide');
+                        });
+                    });
+
+                    // 选择文件事件
+                    $('input[type=file]').on('change', function(event) {
+                        var files = event.target.files;
+                        // console.log(files);
+                        imgQueue(files);
+                        $(this).val('');
+
+                        if(this.id === 'upload_imgs'){
+                            $('.u-p-wrap').css('display', 'none');
+                            $('.upload-preview').css('display', 'block');
+                            // $('.footer').css('display', 'block');
+                        }
+                    });
+
+                    // 删除单张图片button事件
+                    delBtn();
+
+                    // 上传文件Button事件
+                    upload_btn.on('click', function(event) {
+                        processQueue();
+                    });
+                }
+
+                function delBtn(){
+                    preview_zone.on('mouseenter mouseleave', 'li', function(event) {
+                        if(event.type === 'mouseenter'){
+                            // console.log(this);
+                            $(this).find('.cancel-btn').css('display', 'block');
+                        }else if(event.type === 'mouseleave'){
+                            // console.log(event.type);
+                            $(this).find('.cancel-btn').css('display', 'none');
+                        }
+                    });
+                    preview_zone.on('click', '.cancel-btn', function(event) {
+                        event.preventDefault();
+                        var id = $(this).parent().attr('id').match(/\d+/)[0];
+                        // console.log(typeof id);
+                        delImg(parseInt(id));
+                        // console.log(img_files);
+                        $(this).parent().parent().hide('fast', function(){
+                            $(this).remove();
+                        });
+                    });
+                }
+
+                function delImg(id){
+                    for (var i = 0; i < img_files.length; i++) {
+                        if(img_files[i].id === id){
+                            var del = img_files.splice(i, 1);
+                            // console.log(del);
+                        }
+                    };
+                }
+
+                function previewImg(id, file){
+                    preview_zone.find('.plus-btn').before($('<li class="column float"><div class="img-wrap" id="img' + id + '"><i class="cancel-btn"></i><img src="'+ window.URL.createObjectURL(file) + '" alt="#"><div class="progress-wrap"><i class="p-bar"></i></div></div><p class="img-title text-overflow">' + file.name + '</p></li>'));
+                }
+
+                function imgQueue(files){
+                    for (var i = 0; i < files.length; i++) {
+                        if(img_files.length >= max_img_num){
+                            alert('超过' + max_img_num + '张图片了');
+                            break;
+                        }else{
+                            if(isSameImg(files[i])){
+                                console.log('这是一张相同的图片。。。');
+                                continue;
+                            }else{
+                                img_files.push({
+                                    'id': unique_id,
+                                    'file': files[i]
+                                });
+                                previewImg(unique_id, files[i]);
+                                unique_id++;
+                            }
+                        }
+                    };
+                    console.log(img_files);
+                }
+
+                function isSameImg(file){
+                    for (var i = 0; i < img_files.length; i++) {
+                        if(img_files[i].file.name === file.name){
+                            return true;
+                        }
+                    };
+                    return false;
+                }
+
+                function imgProcessBar(id, percent){
+                    $('#img' + id).find('.p-bar').css('width', percent + '%');
+                }
+
+                function processQueue(){
+                    uploading = true;
+
+                    queuePos++;
+                    if(queuePos >= img_files.length){
+                        // 此时上传已经结束
+
+                        queuePos = -1;
+                        uploading = false;
+                        return ;
+                    }
+
+                    var file = img_files[queuePos].file;
+                    var fd = new FormData();
+                    fd.append('uploadImg', file);
+
+                    // Before Upload
+
+                    $.ajax({
+                        url: url,
+                        type: method,
+                        dataType: data_type,
+                        data: fd,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        async: true,
+                        xhr: function() {
+                            var xhrobj = $.ajaxSettings.xhr();
+                            if (xhrobj.upload) {
+                                xhrobj.upload.addEventListener('progress', function(event) {
+                                    var percent = 0;
+                                    var position = event.loaded || event.position;
+                                    var total = event.total || e.totalSize;
+                                    if (event.lengthComputable) {
+                                        percent = Math.ceil(position / total * 100);
+                                    }
+                                    console.log(uploading);
+                                    // 进度条事件
+                                    console.log(percent);
+                                    imgProcessBar(img_files[queuePos].id, percent);
+
+                                }, false);
+                            }
+
+                            return xhrobj;
+                        },
+                        success: function(data, message, xhr) {
+                            console.log(data);
+                        },
+                        error: function(xhr, status, errMsg) {
+                            console.log(errMsg);
+                        },
+                        complete: function(xhr, textStatus) {
+                            processQueue();
+                        }
+                    });
+                }
+                Init();
+
+                // -- Disable Document D&D events to prevent opening the file on browser when we drop them
+                $(document).on('dragenter', function(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                });
+                $(document).on('dragover', function(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                });
+                $(document).on('drop', function(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                });
+            }(jQuery));
+        </script>
+    </body>
+</html>
