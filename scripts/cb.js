@@ -289,23 +289,22 @@
         var opts = $.extend({}, $.fn.addWheelEvent.default_opts, user_opts);
         
         return this.each(function(index, el) {
-            var isFirefox = (window.navigator.userAgent.toLowerCase().indexOf('firefox') > -1);
-            var down = true;
-            var wheelFn = function(event){
-                var ev = event || window.event;
-                down = ev.wheelDelta ? ev.wheelDelta < 0 : ev.detail > 0;
-                opts.handler && opts.handler(down, ev);
+            var down = true,
+                wheelFn = function(event){
+                    var ev = event || window.event;
+                    down = ev.wheelDelta ? ev.wheelDelta < 0 : ev.detail > 0;
+                    opts.handler && opts.handler(down, ev);
 
-                if(opts.preventDefault){
-                    ev.returnValue = false;
-                    ev.preventDefault && ev.preventDefault();
-                }
-                if(opts.stopPropagation){
-                    ev.cancelBubble = true;
-                    ev.stopPropagation && ev.stopPropagation();
-                }
-                return false;
-            };
+                    if(opts.preventDefault){
+                        ev.returnValue = false;
+                        ev.preventDefault && ev.preventDefault();
+                    }
+                    if(opts.stopPropagation){
+                        ev.cancelBubble = true;
+                        ev.stopPropagation && ev.stopPropagation();
+                    }
+                    return false;
+                };
             if(isFirefox){
                 this.addEventListener('DOMMouseScroll', wheelFn, false);
             }else{
@@ -322,7 +321,7 @@
 
     // 飞图
     // =============    Needn't use below fly-img code anymore  ============ 
-    // fly_end = false;
+    // var fly_end = false;
     // var $airplane = $('<div id="airplane"></div>').appendTo('body'),
     //     target = $('div.compare-fix')[0].getBoundingClientRect();
 
@@ -668,7 +667,7 @@
         });
     };
 
-    // 字数限制工具函数（函数式编程思想）
+    // 字数限制工具函数
     $('.word-num-limit').on('input', function(event) {
         event.preventDefault();
         var _me = $(this),

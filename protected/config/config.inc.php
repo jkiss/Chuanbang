@@ -4,10 +4,10 @@ define('DOMAIN_NAME','3w.chuanbang.com');
 define('WEB_URL','http://' . DOMAIN_NAME);
 
 // 数据库配置
-define('DB_HOST','115.182.0.235');
+define('DB_HOST','127.0.0.1');
 define('DB_PORT',3306);
-define('DB_USERNAME','chuanbang');
-define('DB_PASSWORD','chuanbang!@#');
+define('DB_USERNAME','root');
+define('DB_PASSWORD','root');
 define('DB_NAME','chuanbang');
 
 // 微博
