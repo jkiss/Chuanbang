@@ -60,7 +60,7 @@
         </a>
         <div id="search_box">
             <i class="icon-zoom"></i>
-            <input type="text" id="keywords" name="keywords" autocomplete="off" placeholder="搜索&nbsp;品牌/明星/话题..." value="<?php echo isset($_GET['word']) && !empty($_GET['word']) ? $_GET['word'] : '';?>" required="required" data-focus="false">
+            <input type="text" id="keywords" name="keywords" autocomplete="off" placeholder="搜索&nbsp;品牌/明星/话题..." value="" required="required" data-focus="false">
             <div class="search-result">
             </div>
         </div>
@@ -77,29 +77,22 @@
             <nav class="items index-sub">
                 <h1>趋势</h1>
                 <ul class="wheel-panel">
-                    <?php foreach($trend as $item):?>
-                        <li class="transition">
-                            <?php if($item['tag'] == 'celebrity'):?>
-                            <a href="<?php echo Yii::app()->createUrl('celebrity/view',array('id'=>$item['id']));?>">
-                            <?php elseif($item['tag'] == 'brand'):?>
-                            <a href="<?php echo Yii::app()->createUrl('brand/view',array('id'=>$item['id']));?>">
-                            <?php else:;?>
-                            <a href="javascript:;">
-                            <?php endif;?>
-                                <div class="img-wrap">
-                                    <img src="<?php echo $item['img'];?>?w=80&h=80" alt="#">
-                                </div>
-                                <p><em>
-                                <?php if($item['tag'] == 'celebrity' && isset($item['name_cn']) && !empty($item['name_cn'])):?>
-                                    <?php echo $item['name_cn'];?><br>
-                                <?php endif;?>
-                                <?php if(isset($item['name_en']) && !empty($item['name_en'])):?>
-                                    <?php echo $item['name_en'];?>
-                                <?php endif;?>
-                                </em></p>
-                            </a>
-                        </li>
-                    <?php endforeach;?>
+                    <li class="transition">
+
+                        <a href="celebrity/view">
+
+                        <a href="brand/view">
+
+                        <a href="javascript:;">
+                            <div class="img-wrap">
+                                <img src="./images/user/default_ava.png" alt="#">
+                            </div>
+                            <p><em>
+                            尼奥<br>
+                            Neo
+                            </em></p>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -111,54 +104,74 @@
                 热门话题
             </h3>
 
-            <?php if(isset($topics) && is_array($topics) && count($topics) >= 3):?>
             <div class="main">
                 <div class="slide-panel">
                     <ul class="wrapper translate3D">
-                        <?php $size = count($topics);?>
+
                         <li class="one">
-                            <a href="<?php echo Yii::app()->createUrl('topic/view', array('id'=>$topics[$size-2]['id']));?>">
-                                <img src="<?php echo $topics[$size-2]['cover'].'?w=780&h=500';?>" alt="">
+                            <a href="topic/view">
+                                <img src="./images/hot1.jpg" alt="">
                             </a>
                             <a href="#"><div class="title">
-                                <?php echo $topics[$size-2]['title'];?>
+                                Title
                             </div></a>
                         </li>
                         <li class="one">
-                            <a href="<?php echo Yii::app()->createUrl('topic/view', array('id'=>$topics[$size-1]['id']));?>">
-                                <img src="<?php echo $topics[$size-1]['cover'].'?w=800&h=500';?>" alt="">
+                            <a href="topic/view">
+                                <img src="./images/hot1.jpg" alt="">
                             </a>
                             <a href="#"><div class="title">
-                                <?php echo $topics[$size-1]['title'];?>
+                                Title
                             </div></a>
                         </li>
                         
-                        <?php foreach($topics as $topic):?>
-                            <?php if(isset($topic['cover'])):?>
-                            <li class="one">
-                                <a href="<?php echo Yii::app()->createUrl('topic/view', array('id'=>$topic['id']));?>">
-                                    <img src="<?php echo $topic['cover'].'?w=800&h=500';?>" alt="">
-                                </a>
-                                <a href="#"><div class="title">
-                                    <?php echo $topic['title'];?>
-                                </div></a>
-                            </li>
-                            <?php endif;?>
-                        <?php endforeach;?>
                         <li class="one">
-                            <a href="<?php echo Yii::app()->createUrl('topic/view', array('id'=>$topics[0]['id']));?>">
-                                <img src="<?php echo $topics[0]['cover'].'?w=800&h=500';?>" alt="">
+                            <a href="topic/view">
+                                <img src="./images/hot3.jpg" alt="">
                             </a>
                             <a href="#"><div class="title">
-                                <?php echo $topics[0]['title'];?>
+                                Title
                             </div></a>
                         </li>
                         <li class="one">
-                            <a href="<?php echo Yii::app()->createUrl('topic/view', array('id'=>$topics[1]['id']));?>">
-                                <img src="<?php echo $topics[1]['cover'].'?w=800&h=500';?>" alt="">
+                            <a href="topic/view">
+                                <img src="./images/hot3.jpg" alt="">
                             </a>
                             <a href="#"><div class="title">
-                                <?php echo $topics[1]['title'];?>
+                                Title
+                            </div></a>
+                        </li>
+                        <li class="one">
+                            <a href="topic/view">
+                                <img src="./images/hot3.jpg" alt="">
+                            </a>
+                            <a href="#"><div class="title">
+                                Title
+                            </div></a>
+                        </li>
+
+                        <li class="one">
+                            <a href="topic/view">
+                                <img src="./images/hot4.jpg" alt="">
+                            </a>
+                            <a href="#"><div class="title">
+                                Title
+                            </div></a>
+                        </li>
+                        <li class="one">
+                            <a href="topic/view">
+                                <img src="./images/hot3.jpg" alt="">
+                            </a>
+                            <a href="#"><div class="title">
+                                Title
+                            </div></a>
+                        </li>
+                        <li class="one">
+                            <a href="topic/view">
+                                <img src="./images/hot3.jpg" alt="">
+                            </a>
+                            <a href="#"><div class="title">
+                                Title
                             </div></a>
                         </li>
                     </ul>
@@ -172,7 +185,6 @@
                     <div class="mask-r"></div>
                 </div>
             </div>
-            <?php endif;?>
         </section>
         <!-- <i class="hr"></i> -->
         <section class="new">
@@ -181,7 +193,7 @@
                 最新动态
             </h3>
             <div class="news-box grid four sep clearfix">
-                <a class="column float transition" href="<?php echo Yii::app()->createUrl('answer/view',array('id'=>$answer['ans_id']));?>">
+                <a class="column float transition" href="answer/view">
                     <div class="image scale-1">
                         <img src="./images/news1.jpg" alt="img" data-img="">
                     </div>
