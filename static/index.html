@@ -181,30 +181,27 @@
                 最新动态
             </h3>
             <div class="news-box grid four sep clearfix">
-            <?php for($i=0, $len=count($answers); $i < $len; $i++):?>
-                <?php $answer = $answers[$i];?>
                 <a class="column float transition" href="<?php echo Yii::app()->createUrl('answer/view',array('id'=>$answer['ans_id']));?>">
                     <div class="image scale-1">
-                        <img src="<?php echo $answer['img'].'?w=306&h=458';?>" alt="img" data-img="">
+                        <img src="./images/news1.jpg" alt="img" data-img="">
                     </div>
                     <div class="bottom">
                         <div class="title">
-                            <p class="t_name text-overflow"><?php echo $answer['celebrity_name'];?></p>
+                            <p class="t_name text-overflow">Emma Dumont</p>
                             <i class="icon-in new-in"></i>
                             <p class="t_clothes">
-                                <?php echo $answer['brand_name'];?>
+                                Dior
                             </p>
                         </div>
                         <div class="author new-au">
                             <i class="avatar">
-                                <img src="<?php echo $answer['user_head'];?>" alt="">
+                                <img src="./images/user/user_ava.jpg" alt="">
                             </i>
-                            <p class="a_name"><?php echo $answer['user_nick'];?></p>
-                            <p class="a_time"><?php echo $answer['ans_time'];?></p>
+                            <p class="a_name">Monica</p>
+                            <p class="a_time">2018-06-12</p>
                         </div>
                     </div>
                 </a>
-            <?php endfor;?>
             </div>
         </section>
         <!-- more search -->
