@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="keywords" content="穿帮，明星">
+    <meta naem="description" content="发现时尚与潮流，揭穿明星的秘密！">
+    <title>穿帮v0.1 - Home</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="../styles/noookey.css">
+    <link rel="stylesheet" href="../styles/cb.css">
+    <link rel="stylesheet" href="../styles/index.css">
+    <script src="../scripts/jquery.js"></script>
+    <script src="../scripts/jquery.easing.1.3.js"></script>
+</head>
+<body>
+    <!-- The main nav -->
+    <nav class="main-nav">
+        <ul>
+            <li>
+                <a href="../index.html" class="transition">首页</a>
+                <a href="../index.html" class="icon-home m-nav-icon transition"></a>
+            </li>
+            <li>
+                <a href="../celebrity/index.html" class="transition">名人</a>
+                <a href="../celebrity/index.html" class="icon-star m-nav-icon transition"></a>
+            </li>
+            <li class="active">
+                <a href="#" class="transition">品牌</a>
+                <a href="#" class="icon-brand m-nav-icon transition"></a>
+            </li>
+            <li>
+                <a href="../topic/index.html" class="transition">话题</a>
+                <a href="../topic/index.html" class="icon-topic m-nav-icon transition"></a>
+            </li>
+            <li>
+                <a href="../compare/index.html" class="transition">对比</a>
+                <a href="../compare/index.html" class="icon-compare-1 m-nav-icon transition"></a>
+            </li>
+            <li>
+                <a href="../question/index.html" class="transition">待答</a>
+                <a href="../question/index.html" class="icon-wait m-nav-icon transition"></a>
+            </li>
+            <li>
+                <a href="../user/index.html" class="transition">用户</a>
+                <a href="../user/index.html" class="icon-user-1 m-nav-icon transition"></a>
+            </li>
+        </ul>
+    </nav>
+    <!-- The top bar -->
+    <header class="header">
+        <a href="/">
+            <div class="logo">
+                <i class="icon-black-star"></i>
+            </div>
+        </a>
+        <div id="search_box">
+            <i class="icon-zoom"></i>
+            <input type="text" id="keywords" name="keywords" autocomplete="off" placeholder="搜索&nbsp;品牌/明星/话题..." value="" required="required" data-focus="false">
+            <div class="search-result">
+            </div>
+        </div>
+        <a href="../question/ask.html" class="add-star-outfit transition">
+            <i class="icon-plus"></i>
+            添加明星穿搭
+        </a>
+    </header>
+    <!-- The sub nav -->
+    <div class="sub-nav-wrap">
+        <div class="sub-nav">
+            <ul id="b_s_sub">
+                
+                <a href="./view.html?id=12">
+                    <div class="thumb transition">
+                        <div class="img-wrap">
+                            <img src="../images/brand/brand2.jpg" alt="">
+                        </div>
+                        <p><em>
+                            香奈儿<br>
+                            Chenel
+                        </em></p>
+                    </div>
+                </a>
+
+                <a href="brand/products">
+                    <li class="transition">秀场</li>
+                </a>
+                <a href="brand/designer">
+                    <li class="transition">设计师</li>
+                </a>
+                <a href="brand/fresh">
+                    <li class="transition active">品牌动态</li>
+                </a>
+                <a href="brand/celebrity">
+                    <li class="transition">相关名人</li>
+                </a>
+                <a href="brand/topic">
+                    <li class="transition">去过活动</li>
+                </a>
+                <a href="brand/fan">
+                    <li class="transition">粉丝</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+
+    <!-- START: content -->
+    <!-- The b_s_new page -->
+    <section class="content" id="b_s_new">
+        <div class="fou-nav">
+            品牌动态
+        </div>
+        <div id="page_panel" data-max-page="12">
+
+            <div class="one">
+                <div class="img-wrap">
+                    <a href="brand/view">
+                        <img src="../images/brand/detail1.jpg" alt="">
+                    </a>
+                </div>
+
+                <div class="clothes cele">
+                    <span class="celebrity">
+                        街边的路灯
+                        <i class="icon-in"></i>
+                    </span>
+                    <span class="type">夏装</span>
+                    <span class="style">上衣</span>
+                </div>
+
+                <div class="event">
+                    <span class="title">胡同时装</span>
+                    <span class="date">2014-09-12</span>
+                    <span class="place">东城</span>
+                </div>
+                <div class="m-data">
+                    <div class="detail">
+                        <span>共111张图</span>
+                        <span>32条评论</span>
+                        <span>45条其他解读</span>
+                    </div>
+                    <div class="author">
+                        <div class="avatar">
+                            <img src="../images/avatar1.jpg" alt="">
+                        </div>
+                        <p class="name">章三</p>
+                        <p class="time">2014-08-12</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <ul class="page-num" data-total-page="">
+            <div class="num-panel">
+                
+            </div>
+        </ul>
+    </section>
+
+    <script>
+    function invokeHere(Pagination, publishDate, Wheel){
+        var 
+            // Extra Data
+            id = $('#b_s_sub').find('a').attr('href').match(/\d+/g)[0],
+            extra_data = {
+                id: id,
+                ajax: true,
+                pageSize: 5
+            },
+            // update eles
+            $wrap = $('.page-num').find('.num-panel'),
+            $page_panel = $('#page_panel'),
+            loadingHTML = '<i class="loading-1"><img src="<?php echo Yii::app()->baseUrl;;?>/images/loading-rot-full.gif" alt="loading"></i>',
+            opt = {
+                url: '/brand/fresh',
+                range: 5,
+                wrap: $('.page-num').find('.num-panel'),
+                max_page: parseInt($('#page_panel').attr('data-max-page')),
+                updateContent: function(data, page_panel){  // 更新图片内容
+                    var content = '',
+                        data = data.rows;
+                    for (var i = 0; i < data.length; i++) {
+                        content += '<div class="one"><div class="img-wrap"><a href="/answer/'+ data[i].id +'"><img src="'+ data[i].img +'?w=355&h=345" alt=""></a></div>';
+                        for (var j = 0; j < data[i].details.length; j++) {
+                            content += '<div class="clothes cele"><span class="celebrity">'+ data[i].details[j].celebrity +'<i class="icon-in"></i></span><span class="type">'+ data[i].details[j].style +'</span><span class="style">'+ data[i].details[j].clothes_type +'</span></div>';
+                        };
+                        content += '<div class="event"><span class="title">'+ data[i].happens +'</span><span class="date">'+ data[i].occurdate +'</span><span class="place">'+ data[i].place +'</span></div><div class="m-data"><div class="detail"><span>共'+ data[i].total_imgs +'张图</span><span>'+ data[i].total_comments +'条评论</span><span>'+ data[i].total_answers +'条其他解读</span></div><div class="author"><div class="avatar"><img src="'+ data[i].author.head +'" alt=""></div><p class="name">'+ data[i].author.nick +'</p><p class="time">'+ publishDate(data[i].createtime) +'</p></div></div></div>';
+                    };
+                    page_panel.html(content);
+                },
+                beforeSend: function(){
+                    // beforesend...清除当前页的内容，显示 Loading，跳到最顶部，并隐藏页码区
+                    $page_panel.html(loadingHTML);
+                    $('html, body').animate({scrollTop: 395}, 200);
+                    // Hide pagination
+                    $('.num-panel').css('display', 'none');
+                },
+                sendComplete: function(){
+                    // Show pagination
+                    $('.num-panel').css('display', 'block');
+                }
+            },
+            pageXHR = new Pagination(opt);
+
+        // Init the first page
+        pageXHR.init(function(){
+            pageXHR.updateNum(pageXHR.paged);
+        });
+
+        // This is a page num switch Proxy
+        $('.num-panel').on('click', 'li, span', function(event) {
+            var $target = $(event.target);
+            // console.log($target.is('li, span'));
+            if(!($target.hasClass('current') || $target.hasClass('disable'))){
+                if($target.is('li')){
+                    // get page num from <li>
+                    pageXHR.paged = parseInt($target.attr('data-page'));
+                }else if($target.is('span')){
+                    // get page num from <span>, Judge it's prev page or next page
+                    $target.hasClass('prev') ? pageXHR.paged -= 1 : pageXHR.paged += 1;
+                }
+                // request pagination
+                pageXHR.xhrPage(pageXHR.paged, $page_panel, extra_data);
+            }
+        });
+    }
+    </script>
+    <!-- END: content -->
+
+    <!-- To top -->
+    <div class="to-top link">
+        <i class="icon-dir-up"></i>
+    </div>
+    <script src="../scripts/cb.js"></script>
+</body>
+</html>

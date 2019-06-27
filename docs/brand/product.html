@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="keywords" content="穿帮，明星">
+    <meta naem="description" content="发现时尚与潮流，揭穿明星的秘密！">
+    <title>穿帮v0.1 - Home</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="../styles/noookey.css">
+    <link rel="stylesheet" href="../styles/cb.css">
+    <link rel="stylesheet" href="../styles/index.css">
+    <script src="../scripts/jquery.js"></script>
+    <script src="../scripts/jquery.easing.1.3.js"></script>
+</head>
+<body>
+    <!-- The main nav -->
+    <nav class="main-nav">
+        <ul>
+            <li>
+                <a href="../index.html" class="transition">首页</a>
+                <a href="../index.html" class="icon-home m-nav-icon transition"></a>
+            </li>
+            <li>
+                <a href="../celebrity/index.html" class="transition">名人</a>
+                <a href="../celebrity/index.html" class="icon-star m-nav-icon transition"></a>
+            </li>
+            <li class="active">
+                <a href="#" class="transition">品牌</a>
+                <a href="#" class="icon-brand m-nav-icon transition"></a>
+            </li>
+            <li>
+                <a href="../topic/index.html" class="transition">话题</a>
+                <a href="../topic/index.html" class="icon-topic m-nav-icon transition"></a>
+            </li>
+            <li>
+                <a href="../compare/index.html" class="transition">对比</a>
+                <a href="../compare/index.html" class="icon-compare-1 m-nav-icon transition"></a>
+            </li>
+            <li>
+                <a href="../question/index.html" class="transition">待答</a>
+                <a href="../question/index.html" class="icon-wait m-nav-icon transition"></a>
+            </li>
+            <li>
+                <a href="../user/index.html" class="transition">用户</a>
+                <a href="../user/index.html" class="icon-user-1 m-nav-icon transition"></a>
+            </li>
+        </ul>
+    </nav>
+    <!-- The top bar -->
+    <header class="header">
+        <a href="/">
+            <div class="logo">
+                <i class="icon-black-star"></i>
+            </div>
+        </a>
+        <div id="search_box">
+            <i class="icon-zoom"></i>
+            <input type="text" id="keywords" name="keywords" autocomplete="off" placeholder="搜索&nbsp;品牌/明星/话题..." value="" required="required" data-focus="false">
+            <div class="search-result">
+            </div>
+        </div>
+        <a href="../question/ask.html" class="add-star-outfit transition">
+            <i class="icon-plus"></i>
+            添加明星穿搭
+        </a>
+    </header>
+    <!-- The sub nav -->
+    <div class="sub-nav-wrap">
+        <div class="sub-nav">
+            <ul id="b_s_sub">
+                
+                <a href="./view.html?id=12">
+                    <div class="thumb transition">
+                        <div class="img-wrap">
+                            <img src="../images/brand/brand2.jpg" alt="">
+                        </div>
+                        <p><em>
+                            香奈儿<br>
+                            Chenel
+                        </em></p>
+                    </div>
+                </a>
+
+                <a href="brand/products">
+                    <li class="transition">秀场</li>
+                </a>
+                <a href="brand/designer">
+                    <li class="transition">设计师</li>
+                </a>
+                <a href="brand/fresh">
+                    <li class="transition">品牌动态</li>
+                </a>
+                <a href="brand/celebrity">
+                    <li class="transition">相关名人</li>
+                </a>
+                <a href="brand/topic">
+                    <li class="transition active">去过活动</li>
+                </a>
+                <a href="brand/fan">
+                    <li class="transition">粉丝</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+
+    <!-- START: content -->
+    <!-- The b_s_new page -->
+    <!-- brand show page -->
+    <section class="content" id="b_s_show">
+        <div class="fou-nav">
+            秀场
+        </div>
+
+        <div class="select-wrap no-select">
+            <i class="icon-tri-down"></i>
+            <em class="title" data-select="selected">全部时装秀</em>
+            <ul class="show-type hide">
+
+                <li data-id="12" class="transition">
+                    <p class="text-overflow">三里屯灯光秀</p>
+                </li>
+                <li data-id="12" class="transition">
+                    <p class="text-overflow">海边婚礼</p>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="product">
+
+            <h1 class="name">风舞蝶秋</h1>
+            <p class="desc">
+                秋后的一个午日，清风徐徐，天色灰蒙。枯黄，失去清新绿色的叶子，落下。随风飘游，旋转停留……一抹灰黄色，就那样出现在眼前。咻地一刹那，轻轻掠过，却不小心，撞在了地上。</p>
+            <div class="grid four sep clearfix" id="page_panel">
+
+                <a href="javascript:;" class="column float">
+                    <div class="image scale-1">
+                        <img src="../images/brand/show1.jpg" alt="">
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+    <script>
+        function invokeHere(){
+            var ajaxing = false;
+            $('#b_s_show').find('.select-wrap').click(function(event) {
+                var show_type = $(this).find('.show-type');
+                if(!ajaxing){
+                    if(show_type.hasClass('hide')){
+                        show_type.css('display', 'block');
+                        show_type.animate({
+                            'opacity': 1,
+                            'top': '50px'
+                        },
+                            300, function() {
+                            show_type.toggleClass('hide appear');
+                        });
+                    } else if(show_type.hasClass('appear')){
+                        show_type.animate({
+                            'opacity': 0,
+                            'top': '55px'
+                        },
+                            300, function() {
+                            show_type.toggleClass('hide appear');
+                            $(this).css('display', 'none');
+                        });
+                    }
+                }
+            });
+
+            $('.show-type').find('li').click(function(event) {
+                var _me = $(this),
+                    select_wrap = $('.select-wrap'),
+                    text = _me.find('p').text(),
+                    id = _me.attr('data-id'),
+                    protuct = $('.product'),
+                    loadingHTML = '<i class="loading-1"><img src="<?php echo Yii::app()->baseUrl;;?>/images/loading-rot-full.gif" alt="loading"></i>',
+                    page_panel = $('#page_panel');
+
+                if(!ajaxing){
+                    ajaxing = true;
+                    $.ajax({
+                        url: '/brand/product',
+                        type: 'GET',
+                        dataType: 'json',
+                        data: {
+                            id: id
+                        },
+                        beforeSend: function(){
+                            page_panel.html(loadingHTML);
+                        },
+                        success: function(data, status, xhr){
+                            var content = '';
+                            protuct.find('.name').text(data.name);
+                            protuct.find('.desc').text(data.description);
+                            for(var i = 0; i < data.images.length; i++){
+                                content += '<a href="javascript:;" class="column float"><div class="image scale-1"><img src="'+ data.images[i] +'?w=209&h=313" alt=""></div></a>';
+                            }
+                            page_panel.html(content);
+                            select_wrap.find('em').attr('class', 'selected').text(text);
+                        },
+                        error: function(xhr, status, msg){
+                            console.log(msg);
+                        },
+                        complete: function(xhr, status){
+                            ajaxing = false;
+                            select_wrap.trigger('click');
+                        }
+                    });
+                }
+
+            });
+        }
+    </script>
+    <!-- END: content -->
+
+    <!-- To top -->
+    <div class="to-top link">
+        <i class="icon-dir-up"></i>
+    </div>
+    <script src="../scripts/cb.js"></script>
+</body>
+</html>

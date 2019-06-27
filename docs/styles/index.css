@@ -694,6 +694,7 @@
     padding: 25px 0;
     position: relative;
     border-bottom: 1px solid #cbcbcb;
+    overflow: hidden;
 }
 #b_s_detail .detail-right .activity{
     height: 150px;

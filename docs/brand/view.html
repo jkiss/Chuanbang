@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="keywords" content="穿帮，明星">
+    <meta naem="description" content="发现时尚与潮流，揭穿明星的秘密！">
+    <title>穿帮v0.1 - Home</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="../styles/noookey.css">
+    <link rel="stylesheet" href="../styles/cb.css">
+    <link rel="stylesheet" href="../styles/index.css">
+    <script src="../scripts/jquery.js"></script>
+    <script src="../scripts/jquery.easing.1.3.js"></script>
+</head>
+<body>
+    <!-- The main nav -->
+    <nav class="main-nav">
+        <ul>
+            <li>
+                <a href="../index.html" class="transition">首页</a>
+                <a href="../index.html" class="icon-home m-nav-icon transition"></a>
+            </li>
+            <li>
+                <a href="../celebrity/index.html" class="transition">名人</a>
+                <a href="../celebrity/index.html" class="icon-star m-nav-icon transition"></a>
+            </li>
+            <li class="active">
+                <a href="#" class="transition">品牌</a>
+                <a href="#" class="icon-brand m-nav-icon transition"></a>
+            </li>
+            <li>
+                <a href="../topic/index.html" class="transition">话题</a>
+                <a href="../topic/index.html" class="icon-topic m-nav-icon transition"></a>
+            </li>
+            <li>
+                <a href="../compare/index.html" class="transition">对比</a>
+                <a href="../compare/index.html" class="icon-compare-1 m-nav-icon transition"></a>
+            </li>
+            <li>
+                <a href="../question/index.html" class="transition">待答</a>
+                <a href="../question/index.html" class="icon-wait m-nav-icon transition"></a>
+            </li>
+            <li>
+                <a href="../user/index.html" class="transition">用户</a>
+                <a href="../user/index.html" class="icon-user-1 m-nav-icon transition"></a>
+            </li>
+        </ul>
+    </nav>
+    <!-- The top bar -->
+    <header class="header">
+        <a href="/">
+            <div class="logo">
+                <i class="icon-black-star"></i>
+            </div>
+        </a>
+        <div id="search_box">
+            <i class="icon-zoom"></i>
+            <input type="text" id="keywords" name="keywords" autocomplete="off" placeholder="搜索&nbsp;品牌/明星/话题..." value="" required="required" data-focus="false">
+            <div class="search-result">
+            </div>
+        </div>
+        <a href="../question/ask.html" class="add-star-outfit transition">
+            <i class="icon-plus"></i>
+            添加明星穿搭
+        </a>
+    </header>
+    <!-- The sub nav -->
+    <div class="sub-nav-wrap">
+        <div class="sub-nav">
+            <ul id="b_s_sub">
+                <!-- <?php if($this->action->id == 'view'):?> -->
+                    <a href="./index.html">
+                        <li class="active home transition">主页</li>
+                    </a>
+                <!-- <?php else:?> -->
+                    <!-- <a href="brand/view">
+                        <div class="thumb transition">
+                            <div class="img-wrap">
+                                <img src="../images/brand/brand2.jpg" alt="">
+                            </div>
+                            <p><em>
+                                香奈儿<br>
+                                Chenel
+                            </em></p>
+                        </div>
+                    </a> -->
+                <!-- <?php endif;?> -->
+                <a href="brand/products">
+                    <li class="transition">秀场</li>
+                </a>
+                <a href="brand/designer">
+                    <li class="transition">设计师</li>
+                </a>
+                <a href="brand/fresh">
+                    <li class="transition">品牌动态</li>
+                </a>
+                <a href="brand/celebrity">
+                    <li class="transition">相关名人</li>
+                </a>
+                <a href="brand/topic">
+                    <li class="transition">去过活动</li>
+                </a>
+                <a href="brand/fan">
+                    <li class="transition">粉丝</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+
+    <!-- START: content -->
+    <!-- The brand view page -->
+    <section class="content" id="b_s_detail">
+        <div class="intro" data-id="12">
+            <div class="ava-wrap">
+                <img src="../images/brand/avatar1.jpg" alt="Avatar" class="avatar">
+            </div>
+            <p class="star-name">
+                <span class="cn">乔治-阿玛尼</span>
+                <span class="en">GIORGIO ARMANI</span>
+            </p>
+            <p class="summary">
+                现在已成为时装界最响亮的品牌之一。曾获奈门-马科斯奖、美国国际设计师协会等奖项，曾在14年内包揽了全球30多项服装大奖。2018年12月，世界品牌实验室发布《2018世界品牌500强》榜单，乔治·阿玛尼排名第367。
+            </p>
+            <p class="detail-control">
+                <span class="fo-btn no transition">
+                    <i class="icon-follow-1"></i>
+                    <span class="text">加关注</span>
+                </span>
+            </p>
+        </div>
+
+
+        <div class="show">
+            <a href="brand/product">
+                <div class="more">
+                    更多<i class="icon-dots"></i>
+                </div>
+            </a>
+            <p class="title">秀场</p>
+            <h1>巴黎时装周</h1>
+            <div class="grid sep nine clearfix">
+
+                <a href="javascript:;" class="column float transition">
+                    <div class="img-wrap scale-1">
+                        <img src="../images/hot2.jpg" alt="show" class="transition">
+                    </div>
+                </a>
+                <a href="javascript:;" class="column float transition">
+                    <div class="img-wrap scale-1">
+                        <img src="../images/hot2.jpg" alt="show" class="transition">
+                    </div>
+                </a>
+                <a href="javascript:;" class="column float transition">
+                    <div class="img-wrap scale-1">
+                        <img src="../images/hot2.jpg" alt="show" class="transition">
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+
+        <div class="detail-right">
+
+            <p>设计师</p>
+
+            <div class="designer one">
+                <div class="img-wrap f-i-w">
+                    <img src="../images/brand/designer.jpg" alt="designer">
+                </div>
+                <p class="cn">本宫之名</p>
+                <p class="en">Fii kksdk</p>
+            </div>
+            <div class="designer one">
+                <div class="img-wrap f-i-w">
+                    <img src="../images/brand/designer.jpg" alt="designer">
+                </div>
+                <p class="cn">小乔</p>
+                <p class="en">Xiao Qiao</p>
+            </div>
+
+            <a href="brand/designer">
+                <div class="more">
+                    更多<i class="icon-dots"></i>
+                </div>
+            </a>
+
+
+
+            <p>相关活动（2）</p>
+
+            <div class="activity one">
+                <div class="img-wrap">
+                    <a href="topic/view"><img src="../images/topic/topic1.jpg" alt="Activity"></a>
+                </div>
+                <p class="a_info">飞啦</p>
+            </div>
+            <div class="activity one">
+                <div class="img-wrap">
+                    <a href="topic/view"><img src="../images/topic/topic1.jpg" alt="Activity"></a>
+                </div>
+                <p class="a_info">飞啦</p>
+            </div>
+
+            <a href="brand/topic">
+                <div class="more">
+                    更多<i class="icon-dots"></i>
+                </div>
+            </a>
+
+
+
+            <p>相关名人（2）</p>
+
+            <div class="brand one">
+                <div class="img-wrap b-i-w">
+                    <a href="celebrity/view"><img src="../images/topic/star1.jpg" alt=""></a>
+                </div>
+                <p class="cn"><em>诸葛亮</em></p>
+                <p class="en"><em>Zhu Geliang</em></p>
+            </div>
+
+            <a href="brand/celebrity">
+                <div class="more">
+                    更多<i class="icon-dots"></i>
+                </div>
+            </a>
+
+
+
+            <p>粉丝（233）</p>
+
+            <div class="fans one">
+                <div class="img-wrap f-i-w">
+                    <a href="user/view"><img src="../images/avatar1.jpg" alt="fans-avatar"></a>
+                </div>
+                <p class="name">飞驰人生</p>
+                <p class="ans">共有84个解读</p>
+            </div>
+
+            <a href="brand/fan">
+                <div class="more" style="border:0">
+                    更多<i class="icon-dots"></i>
+                </div>
+            </a>
+
+        </div>
+        <div class="detail-left">
+            <div class="detail-nav">
+                品牌动态
+            </div>
+            <div class="grid four sep clearfix" id="page_panel" data-max-page="<?php echo $total_page;?>">
+
+                    <a class="column float transition" href="answer/id">
+                        <div class="image scale-1">
+                            <img src="../images/news2.jpg" alt="img" data-img="">
+                        </div>
+                        <div class="bottom-1">
+                            <div class="title">
+                                <i class="icon-in"></i>
+                                <p class="t_clothes">
+                                    布莱尼
+                                </p>
+                            </div>
+                            <div class="author">
+                                1111条评论
+                            </div>
+                        </div>
+                    </a>
+
+            </div>
+        </div>
+    </section>
+    <script>
+        function invokeHere(Pagination){
+            // new animate event
+            $('a[class*="column"]').hover(function(){
+                var _that = $(this);
+                _that.css('background-color', '#282828').find('img').css('top', '-10px');
+                _that.find('.title').css('top', '80px');
+                _that.find('.author').css('top', '0');
+            }, function(){
+                var _that = $(this);
+                _that.css('background-color', '#fff').find('img').css('top', '0');
+                _that.find('.title').css('top', '0');
+                _that.find('.author').css('top', '80px');
+            });
+
+            // Follow event
+            $('.fo-btn').hover(function() {
+                var _me = $(this);
+                if(_me.hasClass('yes')){
+                    _me.find('i').attr('class', 'icon-minus');
+                    _me.find('.text').text('取消关注');
+                    _me.css({
+                        'color': '#000',
+                        'background-color': '#cbcbcb'
+                    });
+                }
+            }, function() {
+                var _me = $(this);
+                if(_me.hasClass('yes')){
+                    _me.find('i').attr('class', 'icon-yes');
+                    _me.find('.text').text('已关注');
+                    _me.css({
+                        'color': '#452CC5',
+                        'background-color': '#fff'
+                    });
+                }
+            });
+
+            $('.fo-btn').click(function(event) {
+                var _me = $(this),
+                    id = $('.intro').attr('data-id'),
+                    data = {
+                        id: id
+                    },
+                    ajaxing = false;
+                if(!ajaxing){
+                    ajaxing = true;
+                    if(_me.hasClass('no')){
+                        $.ajax({
+                            url: '/brand/follow',
+                            type: 'POST',
+                            dataType: 'json',
+                            data: data,
+                            success: function(data, status, xhr){
+                                if(data.msg === 'success'){
+                                    _me.toggleClass('yes no');
+                                    _me.find('i').attr('class', 'icon-yes');
+                                    _me.find('.text').text('已关注');
+                                }else{
+                                    // Fail to follow ...
+                                }
+                            },
+                            error: function(xhr, status, msg){
+                                console.log(msg);
+                            },
+                            complete: function(xhr, status){
+                                ajaxing = false;
+                            }
+                        });
+                    }else if(_me.hasClass('yes')){
+                        $.ajax({
+                            url: '/brand/unfollow',
+                            type: 'POST',
+                            dataType: 'json',
+                            data: data,
+                            success: function(data, status, xhr){
+                                if(data.msg === 'success'){
+                                    _me.toggleClass('yes no');
+                                    _me.find('i').attr('class', 'icon-follow-1');
+                                    _me.find('.text').text('加关注');
+                                    _me.css({
+                                        'color': '#4a4f55',
+                                        'background-color': '#fff'
+                                    });
+                                }else{
+                                    // Fail to unfollow ...
+                                }
+                            },
+                            error: function(xhr, status, msg){
+                                console.log(msg);
+                            },
+                            complete: function(xhr, status){
+                                ajaxing = false;
+                            }
+                        });
+                    }
+                }
+            });
+                
+        }
+    </script>
+    <!-- END: content -->
+
+    <!-- To top -->
+    <div class="to-top link">
+        <i class="icon-dir-up"></i>
+    </div>
+    <script src="../scripts/cb.js"></script>
+</body>
+</html>
