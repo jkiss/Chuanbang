@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="keywords" content="穿帮，明星">
+    <meta naem="description" content="发现时尚与潮流，揭穿明星的秘密！">
+    <title>穿帮v0.1 - Home</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="../styles/noookey.css">
+    <link rel="stylesheet" href="../styles/cb.css">
+    <link rel="stylesheet" href="../styles/index.css">
+    <script src="../scripts/jquery.js"></script>
+    <script src="../scripts/jquery.easing.1.3.js"></script>
+</head>
+<body>
+    <!-- The main nav -->
+    <nav class="main-nav">
+        <ul>
+            <li>
+                <a href="../index.html" class="transition">首页</a>
+                <a href="../index.html" class="icon-home m-nav-icon transition"></a>
+            </li>
+            <li class="active">
+                <a href="#" class="transition">名人</a>
+                <a href="#" class="icon-star m-nav-icon transition"></a>
+            </li>
+            <li>
+                <a href="../brand/index.html" class="transition">品牌</a>
+                <a href="../brand/index.html" class="icon-brand m-nav-icon transition"></a>
+            </li>
+            <li>
+                <a href="../topic/index.html" class="transition">话题</a>
+                <a href="../topic/index.html" class="icon-topic m-nav-icon transition"></a>
+            </li>
+            <li>
+                <a href="../compare/index.html" class="transition">对比</a>
+                <a href="../compare/index.html" class="icon-compare-1 m-nav-icon transition"></a>
+            </li>
+            <li>
+                <a href="../question/index.html" class="transition">待答</a>
+                <a href="../question/index.html" class="icon-wait m-nav-icon transition"></a>
+            </li>
+            <li>
+                <a href="../user/index.html" class="transition">用户</a>
+                <a href="../user/index.html" class="icon-user-1 m-nav-icon transition"></a>
+            </li>
+        </ul>
+    </nav>
+    <!-- The top bar -->
+    <header class="header">
+        <a href="/">
+            <div class="logo">
+                <i class="icon-black-star"></i>
+            </div>
+        </a>
+        <div id="search_box">
+            <i class="icon-zoom"></i>
+            <input type="text" id="keywords" name="keywords" autocomplete="off" placeholder="搜索&nbsp;品牌/明星/话题..." value="" required="required" data-focus="false">
+            <div class="search-result">
+            </div>
+        </div>
+        <a href="../question/ask.html" class="add-star-outfit transition">
+            <i class="icon-plus"></i>
+            添加明星穿搭
+        </a>
+    </header>
+    <!-- The sub nav -->
+    <div class="sub-nav-wrap">
+        <div class="sub-nav">
+            <ul id="b_s_sub">
+                
+                    <a href="./view.html?p=12">
+                        <div class="thumb transition">
+                            <div class="img-wrap">
+                                <img src="../images/brand/avatar1.jpg" alt="">
+                            </div>
+                            <p><em>
+                                基努里维斯<br>
+                                Neo
+                            </em></p>
+                        </div>
+                    </a>
+
+                <a href="./fresh.html">
+                    <li class="transition">名人动态</li>
+                </a>
+                <a href="./brands.html">
+                    <li class="transition">爱穿品牌</li>
+                </a>
+                <a href="./topics.html">
+                    <li class="active transition">去过活动</li>
+                </a>
+                <a href="./fans.html">
+                    <li class="transition">粉丝</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+
+    <!-- START: content -->
+    <!-- star activity page -->
+    <section class="content" id="b_s_activity">
+        <div class="fou-nav">
+            去过的活动
+        </div>
+        <div id="page_panel" data-max-page="12">
+
+            <div class="one clearfix">
+                <div class="left">
+                    <a href="topic/view">
+                        <div class="image scale">
+                            <img src="../images/news3.jpg" alt="">
+                        </div>
+                    </a>
+                </div>
+                <div class="right">
+                    <h1 class="title">一周5天的夏日上班装怎么搭？</h1>
+                    <p class="desc">对于着装有要求的一些行业来说，时下流行的很多潮流元素并不能穿去上班。夏日的职业装该怎么搭配才能时髦又适合上班呢？</p>
+                </div>
+            </div>
+
+        </div>
+        <ul class="page-num" data-total-page="">
+            <div class="num-panel">
+                
+            </div>
+        </ul>
+    </section>
+
+    <script>
+    function invokeHere(Pagination, publishDate, Wheel){
+        var 
+            // Extra Data
+            id = $('#b_s_sub').find('a').attr('href').match(/\d+/g)[0],
+            extra_data = {
+                id: id,
+                ajax: true,
+                pageSize: 5
+            },
+            // update eles
+            $wrap = $('.page-num').find('.num-panel'),
+            $page_panel = $('#page_panel'),
+            loadingHTML = '<i class="loading-1"><img src="<?php echo Yii::app()->baseUrl;;?>/images/loading-rot-full.gif" alt="loading"></i>',
+            opt = {
+                url: '/celebrity/topics',
+                range: 5,
+                wrap: $('.page-num').find('.num-panel'),
+                max_page: parseInt($('#page_panel').attr('data-max-page')),
+                updateContent: function(data, page_panel){  // 更新图片内容
+                    var content = '',
+                        data = data.rows;
+                    for (var i = 0; i < data.length; i++) {
+                        content += '<div class="one clearfix"><div class="left"><a href="/topic/'+ data[i].id +'"><div class="image scale"><img src="'+ data[i].cover +'?w=622&h=457" alt=""></div></a></div><div class="right"><h1 class="title">'+ data[i].title +'</h1><p class="desc">'+ data[i].description +'</p></div></div>';
+                    };
+                    page_panel.html(content);
+                },
+                beforeSend: function(){
+                    // beforesend...清除当前页的内容，显示 Loading，跳到最顶部，并隐藏页码区
+                    $page_panel.html(loadingHTML);
+                    $('html, body').animate({scrollTop: 395}, 200);
+                    // Hide pagination
+                    $('.num-panel').css('display', 'none');
+                },
+                sendComplete: function(){
+                    // Show pagination
+                    $('.num-panel').css('display', 'block');
+                }
+            },
+            pageXHR = new Pagination(opt);
+
+        // Init the first page
+        pageXHR.init(function(){
+            pageXHR.updateNum(pageXHR.paged);
+        });
+
+        // This is a page num switch Proxy
+        $('.num-panel').on('click', 'li, span', function(event) {
+            var $target = $(event.target);
+            // console.log($target.is('li, span'));
+            if(!($target.hasClass('current') || $target.hasClass('disable'))){
+                if($target.is('li')){
+                    // get page num from <li>
+                    pageXHR.paged = parseInt($target.attr('data-page'));
+                }else if($target.is('span')){
+                    // get page num from <span>, Judge it's prev page or next page
+                    $target.hasClass('prev') ? pageXHR.paged -= 1 : pageXHR.paged += 1;
+                }
+                // request pagination
+                pageXHR.xhrPage(pageXHR.paged, $page_panel, extra_data);
+            }
+        });
+    }
+    </script>
+    <!-- END: content -->
+
+    <!-- To top -->
+    <div class="to-top link">
+        <i class="icon-dir-up"></i>
+    </div>
+    <script src="../scripts/cb.js"></script>
+</body>
+</html>
