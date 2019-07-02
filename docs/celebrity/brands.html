@@ -75,7 +75,7 @@
                     <a href="./view.html?p=12">
                         <div class="thumb transition">
                             <div class="img-wrap">
-                                <img src="../images/avatar1.jpg" alt="">
+                                <img src="../images/brand/avatar1.jpg" alt="">
                             </div>
                             <p><em>
                                 基努里维斯<br>
@@ -85,10 +85,10 @@
                     </a>
 
                 <a href="./fresh.html">
-                    <li class="active transition">名人动态</li>
+                    <li class="transition">名人动态</li>
                 </a>
                 <a href="./brands.html">
-                    <li class="transition">爱穿品牌</li>
+                    <li class="active transition">爱穿品牌</li>
                 </a>
                 <a href="./topics.html">
                     <li class="transition">去过活动</li>
@@ -101,50 +101,36 @@
     </div>
 
     <!-- START: content -->
-    <!-- The b_s_new page -->
-    <section class="content" id="b_s_new">
+    <!-- The brand page -->
+    <section class="content" id="b_s_brand">
         <div class="fou-nav">
-            名人动态
+            爱穿品牌
         </div>
         <div id="page_panel" data-max-page="12">
 
-            <div class="one">
-                <div class="img-wrap">
-                    <a href="answer/view">
-                        <img src="../images/hot1.jpg" alt="">
-                    </a>
-                </div>
-
-                <div class="clothes">
-                    <i class="icon-in"></i>
-                    <span class="brand">普拉达</span>
-                    <span class="type">秋装</span>
-                    <span class="style">裤子</span>
-                </div>
-
-                <div class="event">
-                    <span class="title">北京时装周</span>
-                    <span class="date">2017-02-12</span>
-                    <span class="place">Beijing</span>
-                </div>
-                <div class="m-data">
-                    <div class="detail">
-                        <span>共5张图</span>
-                        <span>145条评论</span>
-                        <span>56条其他解读</span>
+            <ul class="one">
+                <li>
+                    <div class="img-wrap">
+                        <a href="brand/view"><img src="../images/brand/brand2.jpg" alt=""></a>
                     </div>
-                    <div class="author">
-                        <div class="avatar">
-                            <img src="../images/brand/avatar1.jpg" alt="">
+                    <p class="cn">爱马仕</p>
+                    <p class="en">Hermas</p>
+                    <div class="m-data">5身穿搭／123粉丝</div>
+                </li>
+
+                    <li>
+                        <div class="img-wrap">
+                            <a href="brand/view"><img src="../images/brand/brand1.jpg" alt=""></a>
                         </div>
-                        <p class="name">阿龙</p>
-                        <p class="time">along</p>
-                    </div>
-                </div>
-            </div>
+                        <p class="cn">小明</p>
+                        <p class="en"><?php echo $brands[$i+1]['name_en'];?></p>
+                        <div class="m-data"><?php echo $brands[$i+1]['total_qa'];?>身穿搭／<?php echo $brands[$i+1]['total_fans'];?>粉丝</div>
+                    </li>
+
+            </ul>
 
         </div>
-
+        
         <ul class="page-num" data-total-page="">
             <div class="num-panel">
                 
@@ -160,14 +146,14 @@
             extra_data = {
                 id: id,
                 ajax: true,
-                pageSize: 5
+                pageSize: 10
             },
             // update eles
             $wrap = $('.page-num').find('.num-panel'),
             $page_panel = $('#page_panel'),
             loadingHTML = '<i class="loading-1"><img src="<?php echo Yii::app()->baseUrl;;?>/images/loading-rot-full.gif" alt="loading"></i>',
             opt = {
-                url: '/celebrity/fresh',
+                url: '/celebrity/brands',
                 range: 5,
                 wrap: $('.page-num').find('.num-panel'),
                 max_page: parseInt($('#page_panel').attr('data-max-page')),
@@ -175,11 +161,22 @@
                     var content = '',
                         data = data.rows;
                     for (var i = 0; i < data.length; i++) {
-                        content += '<div class="one"><div class="img-wrap"><a href="/answer/'+ data[i].id +'"><img src="'+ data[i].img +'?w=355&h=345" alt=""></a></div>';
-                        for (var j = 0; j < data[i].details.length; j++) {
-                            content += '<div class="clothes"><i class="icon-in"></i><span class="brand">'+ data[i].details[j].brand +'</span><span class="type">'+ data[i].details[j].style +'</span><span class="style">'+ data[i].details[j].clothes_type +'</span></div>';
-                        };
-                        content += '<div class="event"><span class="title">'+ data[i].happens +'</span><span class="date">'+ data[i].occurdate +'</span><span class="place">'+ data[i].place +'</span></div><div class="m-data"><div class="detail"><span>共'+ data[i].total_imgs +'张图</span><span>'+ data[i].total_comments +'条评论</span><span>'+ data[i].total_answers +'条其他解读</span></div><div class="author"><div class="avatar"><img src="'+ data[i].author.head +'" alt=""></div><p class="name">'+ data[i].author.nick +'</p><p class="time">'+ publishDate(data[i].author.createtime) +'</p></div></div></div>';
+                        if(i % 2 === 0){
+                            if(i === 0){
+                                content += '<ul class="one">';
+                                content += '<li><div class="img-wrap"><a href="/brand/'+ data[i].id +'"><img src="'+ data[i].logo +'?w=130&h=130" alt=""></a></div><p class="cn">'+ data[i].name_cn +'</p><p class="en">'+ data[i].name_en +'</p><div class="m-data">'+ data[i].total_qa +'身穿搭／'+ data[i].total_fans +'粉丝</div></li>';
+                            }else{
+                                content += '</ul><ul class="one">';
+                                content += '<li><div class="img-wrap"><a href="/brand/'+ data[i].id +'"><img src="'+ data[i].logo +'?w=130&h=130" alt=""></a></div><p class="cn">'+ data[i].name_cn +'</p><p class="en">'+ data[i].name_en +'</p><div class="m-data">'+ data[i].total_qa +'身穿搭／'+ data[i].total_fans +'粉丝</div></li>';
+                            }
+                        }else if(i % 2 === 1){
+                            if(i === data.length - 1){
+                                content += '<li><div class="img-wrap"><a href="/brand/'+ data[i].id +'"><img src="'+ data[i].logo +'?w=130&h=130" alt=""></a></div><p class="cn">'+ data[i].name_cn +'</p><p class="en">'+ data[i].name_en +'</p><div class="m-data">'+ data[i].total_qa +'身穿搭／'+ data[i].total_fans +'粉丝</div></li>';
+                                content += '</ul>';
+                            }else{
+                                content += '<li><div class="img-wrap"><a href="/brand/'+ data[i].id +'"><img src="'+ data[i].logo +'?w=130&h=130" alt=""></a></div><p class="cn">'+ data[i].name_cn +'</p><p class="en">'+ data[i].name_en +'</p><div class="m-data">'+ data[i].total_qa +'身穿搭／'+ data[i].total_fans +'粉丝</div></li>';
+                            }
+                        }
                     };
                     page_panel.html(content);
                 },
