@@ -731,7 +731,7 @@
     // Pagination Ajax
     function Pagination(opt){
         this.url = opt.url;                                          // 分页请求接口
-        this.max_page = opt.max_page;                                // 总页数
+        this.max_page = opt.max_page || 100;                                // 总页数
         this.paged = 1;                                              // 当前页码
         this.range = opt.range;                                      // 超出显示的最大范围
         this.updateContent = opt.updateContent;

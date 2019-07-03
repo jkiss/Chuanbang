@@ -71,8 +71,8 @@
     <div class="sub-nav-wrap">
         <div class="sub-nav">
             <ul class="user-sub">
-                <a href="#">
-                    <li class="active transition">
+                <a href="./index.html">
+                    <li class="transition">
                     <i class="icon-user-2"></i>
                     主页</li>
                 </a>
@@ -126,46 +126,43 @@
     <!-- START: content -->
     <!-- The user-home content -->
     <section class="content" id="user_home">
-        <div class="intro" data-id="1">
+        <div class="intro">
             <div class="avatar">
-                <img src="../images/user/user_ava.jpg" alt="avatar">
+                <img src="../images/avatar1.jpg" alt="avatar">
             </div>
             <div class="user-data">
                 <h1 class="meta-data">
-                    <span class="user-name">数了几颗星星</span>
+                    <span class="user-name">追风少年</span>
                     <i class="icon-qq account" data-type="qq"></i>
-                    
                     <span class="location">
                         <i class="icon-man sex" data-sex="male"></i>
                         朝阳&nbsp;&nbsp;北京
                     </span>
                 </h1>
-                <h2 class="said">穿出你的人生</h2>
-                <a href="user/profile" class="edit transition">
-                    编辑个人资料
+                <h2 class="said">不是所有的人都能知道时光的涵意，不是所有的人都懂得珍惜。这世间并没有分离与衰老的命运，只有肯爱与不肯去爱的心。</h2>
+                <a href="javascript:;" class="edit transition">
+                    加关注
                 </a>
             </div>
             <div class="data-wrap">
-                <p class="summary">蓦然回首，我过去的种种努力只是为了博得他人的赞许和微笑，把自己装进了桎梏中，只剩下一副模糊的面容和一条不能回头的路。</p>
+                <p class="summary">我以为，我已经把你藏好了，藏在那样深，那样冷的，昔日的心底。我以为，只要绝口不提，只要让日子继续地过去，你就终于，终于会变成一个，古老的秘密。可是，不眠的夜，仍然太长，而，早生的白发，又泄露了，我的悲伤。</p>
             </div>
         </div>
         <div class="detail-right">
-            <p class="r-title">关注我的人<span class="follow-nums">5个</span></p>
+            <p class="r-title">关注我的人<span class="follow-nums">88个</span></p>
             <ul class="right-follow">
 
                 <li>
-                    <a href="user/view"><img style="position: absolute; width: 72px;top: 17px;" src="../images/avatar1.jpg" alt="follow1"></a>
-                    <p class="f-name">又是你</p>
-                    <p class="f-info">共有12个解读</p>
-                </li>
-                <li>
-                    <a href="user/view"><img style="position: absolute; width: 72px;top: 17px;" src="../images/avatar1.jpg" alt="follow1"></a>
-                    <p class="f-name">哈哈</p>
-                    <p class="f-info">共有76个解读</p>
+                    <a href="./profile.html">
+                        <img style="position: absolute; top: 20px; width: 70px;" src="../images/compare/thumb2.jpg" alt="follow1">
+                    </a>
+                    <p class="f-name">德玛西亚</p>
+                    <p class="f-info">共有888个解读</p>
                 </li>
 
-                <a href="user/follow" class="more">
-                    <i class="icon-dots"></i>
+                <a href="./follow.html" class="more">
+                    更多
+                    <i class="icon svg">...</i>
                 </a>
             </ul>
         </div>
@@ -173,27 +170,27 @@
             <div class="detail-nav no-select">
                 <span class="answer transition active" data-tab="A">
                     <i class="slide-block"></i>
-                    我的解读</span>
-                <span class="question transition" data-tab="Q">我的提问</span>
+                    他的解读</span>
+                <span class="question transition" data-tab="Q">他的提问</span>
             </div>
             <div class="grid four sep clearfix" id="page_panel">
 
-                <a href="answer/view" class="column float transition">
+                <a href="../question/answer.html" class="column float transition">
                     <div class="image home-scale">
-                        <img src="../images/hot1.png" alt="#">
+                        <img src="../images/hot1.jpg" alt="#">
                     </div>
                     <div class="bottom">
                         <p class="title text-overflow">
-                            歌舞飞扬
+                            爱马仕
                         </p>
-                        <p class="com-num text-overflow">
-                            22条评论
+                        <p class="comment-num text-overflow">
+                            12条评论
                         </p>
                     </div>
                 </a>
 
             </div>
-            <ul class="page-num" data-total-page="11">
+            <ul class="page-num" data-total-page="">
                 <div class="num-panel">
                     <span class="prev disable">
                         <i data-note="a svg"></i>
@@ -221,43 +218,27 @@
         </div>
     </section>
     <script>
-        function invokeHere(Pagination, publishDate, Wheel){   // Keep script code in this func
-            // Ajax Don't use event proxy
-            $('.detail-left').find('a[class*="column"]').hover(function() {
-                var _this = $(this);
-                _this.css('background-color', '#282828').find('img').css('top', '-10px');
-                _this.find('.title').css('top', '-60px');
-                _this.find('.com-num').css('top', '0');
-                _this.find('.com-ans-num').css('top', '0');
-            }, function() {
-                var _this = $(this);
-                _this.css('background-color', '#fff').find('img').css('top', '0');
-                _this.find('.title').css('top', '0');
-                _this.find('.com-num').css('top', '60px');
-                _this.find('.com-ans-num').css('top', '60px');
-            });
-            // Pagination
-            var
+        function invokeHere(Pagination, publishDate){   // Keep script code in this func
+            var 
+                // request parameters
                 tab = $('.detail-nav').find('.active').attr('data-tab'),
-                extra_data = {
-                    pageSize: 16
-                },
+                extra_data = {},
+                // update eles
                 $wrap = $('.page-num').find('.num-panel'),
                 $page_panel = $('#page_panel'),
-                loadingHTML = '<i class="loading-1"><img src="./images/loading-rot-full.gif" alt="loading"></i>',
-            // 我的解答 pagination widget
+                // loading ele
+                loadingHTML = '<i class="loading-1"><img src="../images/loading-rot-full.gif" alt="loading"></i>',
+                // 我的解答 pagination widget
                 A_opt = {
                     url: '/user/answers',
                     // max_page: parseInt($('#total_pages').text()),
                     range: 5,
-                    wrap: $('.page-num').find('.num-panel'),
                     // update new page content
                     updateContent: function(data, page_panel){
                         // console.log(data);
-                        var content = '',
-                            data = data.data;
+                        var content = '';
                         for (var i = 0; i < data.length; i++) {
-                            content += '<a href="'+ data[i].href +'" class="column float transition"><div class="image home-scale"><img src="'+ data[i].img +'?w=306&h=459" alt="#"></div><div class="bottom"><p class="title text-overflow">'+ data[i].celebrity_name +' '+ data[i].brand_name +'</p><p class="com-num text-overflow">'+ data[i].total_comments +'条评论</p></div></a>';
+                            content += '<a href="'+ data[i].href +'" class="column float transition"><div class="image home-scale"><img src="'+ data[i].img +'?w=306&h=459" alt="#"></div><div class="bottom"><p class="title text-overflow">'+ data[i].celebrity_name +'穿'+ data[i].brand_name +'</p><p class="com-num text-overflow">'+ data[i].total_comment +'条评论</p></div></a>';
                         };
                         page_panel.html(content);
                     },
@@ -290,19 +271,17 @@
                     }
                 },
                 A_pageXHR = new Pagination(A_opt),
-            // 我的提问 pagination widget
+                // 我的提问 pagination widget
                 Q_opt = {
                     url: '/user/questions',
                     // max_page: parseInt($('#total_pages').text()),
                     range: 5,
-                    wrap: $('.page-num').find('.num-panel'),
                     // update new page content
                     updateContent: function(data, page_panel){
                         // console.log(data);
-                        var content = '',
-                            data = data.data;
+                        var content = '';
                         for (var i = 0; i < data.length; i++) {
-                            content += '<a href="'+ data[i].href +'" class="column float transition"><div class="image home-scale"><img src="'+ data[i].img +'?w=306&h=459" alt="#"></div><div class="bottom"><p class="title text-overflow">'+ publishDate(data[i].ques_time) +'上传</p><p class="com-ans-num">'+ data[i].total_comments +'条评论<br>'+ data[i].total_answers +'条解读</p></div></a>';
+                            content += '<a href="'+ data[i].href +'" class="column float transition"><div class="image home-scale"><img src="'+ data[i].img +'?w=306&h=459" alt="#"></div><div class="bottom"><p class="title text-overflow">'+ publishDate(data[i].ques_time) +'上传</p><p class="com-ans-num">'+ data[i].total_comment +'条评论<br>'+ data[i].total_answer +'条解读</p></div></a>';
                         };
                         page_panel.html(content);
                     },
@@ -335,23 +314,23 @@
                     }
                 },
                 Q_pageXHR = new Pagination(Q_opt);
-
+    
             // init, the default page is 我的解答
             A_pageXHR.init(function(){
-                A_pageXHR.xhrPage(A_pageXHR.paged, $page_panel, extra_data);
+                A_pageXHR.xhrPage(A_pageXHR.paged, $wrap, $page_panel, extra_data);
             });
-
+    
             $('.num-panel').on('click', 'li, span', function(event) {
                 event.preventDefault();
                 var $target = $(event.target);
                 // console.log($target.is('li, span'));
-
+    
                 if(!($target.hasClass('current') || $target.hasClass('disable'))){
                     if($target.is('li')){
                         // get page num from <li>
                         tab === 'A'
-                            ? A_pageXHR.paged = parseInt($target.attr('data-page'))
-                            : Q_pageXHR.paged = parseInt($target.attr('data-page'));
+                        ? A_pageXHR.paged = parseInt($target.attr('data-page'))
+                        : Q_pageXHR.paged = parseInt($target.attr('data-page'));
                     }else if($target.is('span')){
                         // get page num from <span>, Judge it's prev page or next page
                         if(tab === 'A'){
@@ -362,32 +341,32 @@
                     }
                     // request pagination
                     tab === 'A'
-                        ? A_pageXHR.xhrPage(A_pageXHR.paged, $page_panel, extra_data)
-                        : Q_pageXHR.xhrPage(Q_pageXHR.paged, $page_panel, extra_data);
+                    ? A_pageXHR.xhrPage(A_pageXHR.paged, $wrap, $page_panel, extra_data)
+                    : Q_pageXHR.xhrPage(Q_pageXHR.paged, $wrap, $page_panel, extra_data);
                 }
             });
-
+    
             // 我的解读 & 我的提问 tab switch event
             $('.detail-nav').on('click', 'span', function(event) {
                 var $target = $(event.target),
                     $sib = $target.siblings(),
                     $slide_block = $('.slide-block');
-
+    
                 if(!$target.hasClass('active')){
                     $target.addClass('active');
                     $sib.removeClass('active');
-
+    
                     tab = $target.attr('data-tab');
                     // request pagination
                     tab === 'A'
-                        ? A_pageXHR.xhrPage(A_pageXHR.paged, $page_panel, extra_data)
-                        : Q_pageXHR.xhrPage(Q_pageXHR.paged, $page_panel, extra_data);
-
+                    ? A_pageXHR.xhrPage(A_pageXHR.paged, $wrap, $page_panel, extra_data)
+                    : Q_pageXHR.xhrPage(Q_pageXHR.paged, $wrap, $page_panel, extra_data);
+    
                     // move slide-block
                     console.log(tab);
                     tab === 'A'
-                        ? $slide_block.animate({'left': '0'}, 300)
-                        : $slide_block.animate({'left': '140px'}, 300);
+                    ? $slide_block.animate({'left': '0'}, 300)
+                    : $slide_block.animate({'left': '140px'}, 300);
                 }
             });
         }
