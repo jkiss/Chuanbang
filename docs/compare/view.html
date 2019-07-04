@@ -78,7 +78,7 @@
                 <h1>趋势</h1>
                 <ul class="wheel-panel">
 
-                    <li class="transition"><a href="<?php echo Yii::app()->createUrl('compare/view',array('id'=>$item['id']));?>">
+                    <li class="transition"><a href="#">
                         <div class="image c-scale">
                             <div class="slide-wrap">
                                 
@@ -157,41 +157,32 @@
             </div>
             <div class="thr-col-wrap grid three clearfix show-mode2">
                 <div class="column one">
-                    <?php $i=0; ?>
-                    <?php foreach($model['imgs'] as $item):?>
+                   
                         <a href="javascript:;" class="img-wrap">
-                            <img src="<?php echo $item['url'];?>?h=380" alt="">
-                            <?php if(!empty($item['celebrity'])):?>
+                            <img src="../images/hot4.jpg" alt="">
+
                             <div class="title">
-                                <em><?php echo $item['celebrity'];?>穿<?php echo $item['brand'].' '.$item['style'];?></em>
+                                <em>杨幂穿 爱马仕 裙子</em>
                             </div>
-                            <?php endif;?>
+
                         </a>
-                    <?php endforeach;?>
+
                 </div>
             </div>
             <!--  -->
             <div class="slide-ctrl">
-                <?php if($model['follow'] == 'N'):?>
                 <span class="collect no">
                     <i class="icon-collect-1"></i>
-                <?php else:?>
-                <span class="collect yes">
-                    <i class="icon-collect-2"></i>
-                <?php endif;?>
                     收藏
-                    <span class="num"><?php echo $model['total_follows'];?></span>
+                    <span class="num">1212</span>
                 </span>
 
-                <?php if($model['support'] == 'N'):?>
-                <span class="zan no">
-                    <i class="icon-zan-1"></i>
-                <?php else:?>
+
                 <span class="zan yes">
                     <i class="icon-zan-2"></i>
-                <?php endif;?>
+
                     赞
-                    <span class="num"><?php echo $model['total_ups'];?></span>
+                    <span class="num">3333</span>
                 </span>
                 <span class="share">
                     <script>
@@ -216,7 +207,7 @@
                 </span>
                 
                 <span class="total-imgs">
-                    共<?php echo $model['total_imgs'];?>图
+                    共216图
                 </span>
                 <span class="mode2">
                     列表浏览
@@ -228,42 +219,33 @@
                 </span>
             </div>
             <ul class="comment-box clearfix">
-                <?php if(!empty($model['comments'])):?>
-                <?php foreach($model['comments'] as $comment):?>
+                
                     <li>
                         <div class="ava-wrap">
-                            <img src="<?php echo $comment['author']['head'];?>?w=40&h=40" alt="">
+                            <img src="../images/avatar1.jpg" alt="">
                         </div>
                         <p class="m-data">
-                            <span class="name"><?php echo $comment['author']['nick'];?></span>
-                            <span class="time"><?php echo $comment['time'];?></span>
+                            <span class="name">疯狂的石头</span>
+                            <span class="time">2015-01-12</span>
                         </p>
                         <p class="desc">
-                            <?php echo $comment['content'];?>
+                            假如你现在想看一部日本电影，又觉得大师们的片子太厚重，不易接近，新电影又拿不准看个啥能轻松娱乐赏心悦目又不失逼格，那么电影红花会就给你指条明路:《小森林夏秋篇》！就是一部不看不知道，一看真奇妙的佳片，去年全世界最好看的电影之一，不信？看完无感您回来插了战台烽！
                         </p>
                     </li>
-                <?php endforeach;?>
+
                 <div class="more">
-                    <span class="more-btn">更多评论（全部<?php echo $model['total_comments'];?>条）</span>
+                    <span class="more-btn">更多评论（全部333条）</span>
                 </div>
-                <?php endif;?>
-                <?php if(isset($user)):?>
+
                 <div class="input">
                     <div class="ava-wrap">
-                            <img src="<?php echo $user['head'];?>" alt="">
+                            <img src="../images/brand/avatar1.jpg" alt="">
                     </div>
                     <textarea name="content" id="comment-text"></textarea>
                     <div class="input-btn">
                         提 交
                     </div>
                 </div>
-                <?php else:?>
-                <div class="input">
-                    <div class="login-no">
-                        <i id="login_btn">登陆后</i>，发牢骚
-                    </div>
-                </div>
-                <?php endif;?>
             </ul>
         </div>
     </section>
